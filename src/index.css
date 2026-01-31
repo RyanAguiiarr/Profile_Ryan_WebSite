@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #fafafa;
+  background-color: #050505;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white min-h-screen font-sans antialiased overflow-x-hidden;
+  }
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c; /* Orange-600 */
+}
+
+/* Selection color */
+::selection {
+  background-color: #ea580c;
+  color: white;
+}
+
+/* Global Smooth Transitions */
+a, button {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Infinite Serpentine Border Animation */
+@keyframes border-spin {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animate-border {
+  animation: border-spin 3s linear infinite;
+}
+
+/* Note: The gradient logic is moved to the Button component for better control over the "serpentine" look via utility classes or inline styles if needed, 
+   but we keep the animation definition here. The previous .animate-border class logic is replaced by the specific structure in Button.jsx. 
+   We keep a generic .animate-border for utility if used elsewhere, but for buttons we use the component structure.
+*/
+
