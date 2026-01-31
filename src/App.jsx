@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import About from './components/About';
 import TechStack3D from './components/TechStack3D';
 import Footer from './components/Footer';
+import FutureProjects from './components/FutureProjects';
 
 import ScrollFloatingCard from './components/ScrollFloatingCard';
 import SmoothScroll from './components/ui/SmoothScroll';
@@ -40,6 +41,9 @@ function App() {
             </SectionDimmer>
             <SectionDimmer>
               <Projects />
+            </SectionDimmer>
+            <SectionDimmer>
+              <FutureProjects />
             </SectionDimmer>
             <SectionDimmer>
               <Contact />
