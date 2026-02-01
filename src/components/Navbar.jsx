@@ -10,7 +10,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -100, opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold tracking-tighter hover:text-primary transition-colors">

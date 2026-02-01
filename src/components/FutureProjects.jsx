@@ -93,7 +93,7 @@ const FutureProjects = () => {
   });
 
   return (
-    <section ref={container} id="future-projects" className="bg-black relative pt-20">
+    <section ref={container} id="future-projects" className="relative pt-20">
       <div className="container mx-auto px-6 mb-24 text-center">
             <RevealOnScroll>
                 <span className="text-primary font-medium tracking-wider uppercase text-sm">Coming Soon</span>

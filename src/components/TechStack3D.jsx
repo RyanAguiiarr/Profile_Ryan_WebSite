@@ -1,41 +1,34 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { 
-  Database, 
-  Globe, 
-  Layout, 
-  Server, 
-  Smartphone, 
-  Code,
-  Box,
-  Figma,
-  GitBranch,
-  Terminal,
-  Cpu,
-  Layers
-} from "lucide-react";
+import { Box } from "lucide-react"; // Keep Box for static center icon if needed, or replace it too. keeping for safety or replacing with a logo?
 import InfiniteMarquee from "./InfiniteMarquee";
 
-// Tech stack data with icons, colors, and sizes
+// Tech stack data with official logos
 // Size: 'sm' | 'md' | 'lg'
 const techStack = [
-  // Large items (Inner circle)
-  { name: "React", icon: <Code size={40} />, color: "from-blue-500 to-cyan-400", x: -280, y: -120, z: 100, size: "lg" },
-  { name: "Next.js", icon: <Globe size={40} />, color: "from-gray-600 to-black", x: 280, y: -120, z: 100, size: "lg" },
-  { name: "Node.js", icon: <Server size={40} />, color: "from-green-500 to-emerald-400", x: -250, y: 180, z: 100, size: "lg" },
-  { name: "Tailwind", icon: <Layout size={40} />, color: "from-cyan-400 to-blue-500", x: 250, y: 180, z: 100, size: "lg" },
+  // Large items (Center/Inner core)
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", x: -350, y: -150, z: 100, size: "lg" },
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", x: 350, y: -150, z: 100, size: "lg" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", x: -300, y: 220, z: 100, size: "lg" },
+  { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", x: 300, y: 220, z: 100, size: "lg" },
   
-  // Medium items (Mid circle)
-  { name: "Database", icon: <Database size={32} />, color: "from-orange-500 to-amber-500", x: 0, y: -260, z: 50, size: "md" },
-  { name: "Mobile", icon: <Smartphone size={32} />, color: "from-purple-500 to-pink-500", x: 0, y: 260, z: 50, size: "md" },
-  { name: "TypeScript", icon: <Code size={32} />, color: "from-blue-600 to-blue-400", x: -380, y: 0, z: 60, size: "md" },
-  { name: "Figma", icon: <Figma size={32} />, color: "from-pink-500 to-purple-500", x: 380, y: 0, z: 60, size: "md" },
+  // Medium items (Mid circle - Widened)
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", x: 0, y: -320, z: 50, size: "md" },
+  { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg", x: 0, y: 320, z: 50, size: "md" },
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", x: -500, y: 0, z: 60, size: "md" },
+  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", x: 500, y: 0, z: 60, size: "md" },
+  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", x: -400, y: -250, z: 40, size: "md" }, // NEW
+  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", x: 400, y: -250, z: 40, size: "md" }, // NEW
 
-  // Small items (Outer circle / Background)
-  { name: "Git", icon: <GitBranch size={24} />, color: "from-red-500 to-orange-500", x: -200, y: -280, z: 20, size: "sm" },
-  { name: "Docker", icon: <Box size={24} />, color: "from-blue-500 to-blue-300", x: 200, y: -280, z: 20, size: "sm" },
-  { name: "Terminal", icon: <Terminal size={24} />, color: "from-gray-700 to-gray-500", x: -200, y: 280, z: 20, size: "sm" },
-  { name: "API", icon: <Cpu size={24} />, color: "from-yellow-500 to-orange-500", x: 200, y: 280, z: 20, size: "sm" },
+  // Small items (Outer circle - Widened)
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", x: -600, y: -180, z: 20, size: "sm" },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", x: 600, y: -180, z: 20, size: "sm" },
+  { name: "Bash", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg", x: -600, y: 180, z: 20, size: "sm" },
+  { name: "Postman", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", x: 600, y: 180, z: 20, size: "sm" },
+  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", x: -250, y: -450, z: 10, size: "sm" }, // NEW
+  { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", x: 250, y: -450, z: 10, size: "sm" }, // NEW
+  { name: "Spring", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", x: -250, y: 450, z: 10, size: "sm" }, // NEW
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", x: 250, y: 450, z: 10, size: "sm" }, // NEW
 ];
 
 const TechStack3D = () => {
@@ -76,11 +69,11 @@ const TechStack3D = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden py-24 md:py-32 perspective-1000"
+      className="relative min-h-[150vh] flex items-center justify-center overflow-hidden py-24 md:py-32 perspective-1000"
       style={{ perspective: "1000px" }}
     >
         {/* Background Gradients */}
-        <div className="absolute inset-0 bg-background" />
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
 
         {/* =========================================
@@ -107,23 +100,18 @@ const TechStack3D = () => {
                  {/* Central Glowing Orb */}
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-blue-500/20 via-primary/10 to-transparent blur-3xl opacity-60 pointer-events-none rounded-full" />
                  
+                 {/* Marquee Content - Updated for more items */}
                  {/* Marquee Row 1 - Left */}
-                 <InfiniteMarquee speed={30} items={techStack.slice(0, 6).map((tech, i) => (
-                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm">
-                         {React.cloneElement(tech.icon, { size: 28, className: "text-white" })}
+                 <InfiniteMarquee speed={30} items={techStack.slice(0, 9).map((tech, i) => (
+                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm p-3">
+                         <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                      </div>
                  ))} />
 
-                 {/* Marquee Row 2 - Right (Reversed effectively by slicing differently or just reuse) */}
-                 {/* Note: InfiniteMarquee scrolls left by default. To scroll right we'd need a prop or just use a different order/speed. 
-                     For now let's just use different items. If user needs specific scroll direction 'right', I'd need to update component.
-                     Let's assume standard left scroll is fine or I'll add 'reverse' prop quickly if needed. 
-                     Wait, standard left scroll for both rows is boring. I should check InfiniteMarquee again.
-                     It uses animate={{ x: "-50%" }}. I can add a reverse prop.
-                 */}
-                 <InfiniteMarquee speed={35} reverse items={techStack.slice(6, 12).map((tech, i) => (
-                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm">
-                         {React.cloneElement(tech.icon, { size: 28, className: "text-white" })}
+                 {/* Marquee Row 2 - Right */}
+                 <InfiniteMarquee speed={35} reverse items={techStack.slice(9, 18).map((tech, i) => (
+                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm p-3">
+                         <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                      </div>
                  ))} />
 
@@ -184,9 +172,9 @@ const TechStack3D = () => {
 const FloatingCard = ({ tech }) => {
     // Determine size classes
     const sizeClasses = {
-        sm: "w-16 h-20",
-        md: "w-20 h-28",
-        lg: "w-28 h-36"
+        sm: "w-20 h-24",
+        md: "w-24 h-32",
+        lg: "w-32 h-44"
     };
 
     const iconSize = {
@@ -213,12 +201,17 @@ const FloatingCard = ({ tech }) => {
                 ease: "easeInOut"
             }}
         >
-            <div className={`${sizeClasses[tech.size]} rounded-2xl bg-gradient-to-br ${tech.color} px-0.5 pt-0.5 pb-2 shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
-                <div className="w-full h-full bg-black rounded-[14px] flex items-center justify-center border border-white/10 relative overflow-hidden">
+            <div className={`${sizeClasses[tech.size]} rounded-2xl bg-white/5 backdrop-blur-md px-0.5 pt-0.5 pb-2 shadow-2xl group-hover:scale-110 transition-transform duration-300 border border-white/10`}>
+                <div className="w-full h-full bg-black/40 rounded-[14px] flex items-center justify-center border border-white/5 relative overflow-hidden p-3">
                      {/* Inner Gradient Shine */}
                      <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-50" />
-                     <div className={iconSize[tech.size]}>
-                        {tech.icon}
+                     <div className={`${iconSize[tech.size]} w-full h-full flex items-center justify-center`}>
+                        <img 
+                            src={tech.logo} 
+                            alt={tech.name} 
+                            className="w-full h-full object-contain filter drop-shadow-md" 
+                            style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}}
+                        />
                      </div>
                 </div>
             </div>

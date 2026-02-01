@@ -7,7 +7,16 @@ import RevealOnScroll from "./ui/RevealOnScroll";
 import Button from "./ui/Button";
 
 const skills = [
-  "JAVA", "SPRING BOOT", "REACT", "NEXT.JS", "TYPESCRIPT", "DOCKER", "POSTGRESQL", "MANGODB", "TAILWIND", "GIT"
+  { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" }, // Note: Standard is black, might need white filter or separate asset if invisible
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }
 ];
 
 const Hero = () => {
@@ -18,14 +27,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
       
-      {/* Background Ambience / Glows */}
-      {/* Top Right Glow */}
-      <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      {/* Bottom Left Glow */}
-      <motion.div style={{ y: y2 }} className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/3" />
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+
 
 
       {/* Desktop Layout */}
@@ -145,19 +147,30 @@ const Hero = () => {
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ delay: 1, duration: 1 }}
-         className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-black/80 backdrop-blur-md"
+         className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none"
       >
           {/* Grid Container */}
-          <div className="container mx-auto px-6 relative">
-              {/* Vertical Border Lines (Visual Flair) */}
-              <div className="absolute top-0 bottom-0 left-6 w-px bg-white/5 hidden lg:block" />
-              <div className="absolute top-0 bottom-0 right-6 w-px bg-white/5 hidden lg:block" />
+          <div className="container mx-auto px-6 relative pointer-events-auto">
 
               <div className="py-8 grid gap-8 relative z-10">
                   {/* Header Text */}
 
                   {/* Marquee Content */}
-                  <InfiniteMarquee items={skills} speed={30} />
+                  <InfiniteMarquee 
+                    items={skills.map(skill => (
+                        <div className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer group">
+                             <img 
+                                src={skill.logo} 
+                                alt={skill.name} 
+                                className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg" 
+                                // Invert filter for Next.js if needed (it's black on transparent usually)
+                                style={skill.name === "Next.js" ? { filter: "invert(1)" } : {}}
+                             />
+                             <span className="text-lg font-bold text-gray-300 group-hover:text-white uppercase tracking-wider">{skill.name}</span>
+                        </div>
+                    ))} 
+                    speed={25} 
+                  />
               </div>
           </div>
       </motion.div>

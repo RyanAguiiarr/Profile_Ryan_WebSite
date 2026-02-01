@@ -29,7 +29,7 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative bg-black/50 min-h-screen flex items-center">
+    <section id="about" className="py-24 relative min-h-screen flex items-center">
       <div className="container mx-auto px-6 max-w-6xl">
          
          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24 items-center">
