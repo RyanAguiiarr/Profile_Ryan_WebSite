@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 import profileImg from "../assets/profile.png";
+import logoVideo from "../assets/video_logo.gif";
 
 const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
     <motion.nav
@@ -13,8 +14,12 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
       className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold tracking-tighter hover:text-primary transition-colors">
-          RYAN<span className="text-primary">.DEV</span>
+        <a href="#" className="block w-64 hover:opacity-80 transition-opacity">
+          <img 
+            src={logoVideo} 
+            alt="Ryan Logo" 
+            className="w-full h-auto" 
+          />
         </a>
 
         {/* Desktop Menu */}
@@ -78,9 +83,9 @@ const FloatingNav = ({ navLinks }) => (
         className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
     >
         {/* Profile / Home Icon */}
-        <a href="#home" className="block w-10 h-10 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
+        <a href="#home" className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
              <img 
-                src={profileImg} 
+                src={logoVideo} 
                 alt="Home" 
                 className="w-full h-full object-cover"
             />

@@ -25,7 +25,7 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20">
       
 
 
@@ -147,10 +147,10 @@ const Hero = () => {
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ delay: 1, duration: 1 }}
-         className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none"
+         className="absolute bottom-0 left-[50%] -translate-x-1/2 w-screen pointer-events-none"
       >
           {/* Grid Container */}
-          <div className="container mx-auto px-6 relative pointer-events-auto">
+          <div className="w-full relative pointer-events-auto">
 
               <div className="py-8 grid gap-8 relative z-10">
                   {/* Header Text */}
