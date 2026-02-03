@@ -13,8 +13,8 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="block w-64 hover:opacity-80 transition-opacity">
+      <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
+        <a href="#" className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
           <img 
             src={logoVideo} 
             alt="Ryan Logo" 
@@ -40,7 +40,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="absolute right-6 md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,7 +85,7 @@ const FloatingNav = ({ navLinks }) => (
         {/* Profile / Home Icon */}
         <a href="#home" className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
              <img 
-                src={logoVideo} 
+                src={profileImg} 
                 alt="Home" 
                 className="w-full h-full object-cover"
             />

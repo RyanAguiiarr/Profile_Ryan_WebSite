@@ -23,18 +23,47 @@ const cards = [
 ];
 
 const ThreeDCarousel = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Configuration based on device
+  const config = isMobile ? {
+    radius: -800, // Smaller radius for mobile
+    width: 300,
+    height: 650,
+    perspective: 300,
+    // Center offsets
+    ml: -100, // half of width
+    mt: -450  // half of height
+  } : {
+    radius: -1050,
+    width: 400,
+    height: 700,
+    perspective: 750,
+    ml: -200, // half of width
+    mt: -350  // half of height
+  };
+
   return (
     // Increased scale to ensure cards aren't cut off and fill the field
     // Added breakout styles: w-screen and negative margins to escape the max-w-[1600px] parent
     <section className="relative h-[800px] w-screen left-1/2 -ml-[50vw] overflow-hidden flex flex-col items-center justify-center">
       {/* Adjusted Masks - thinner to maximize visible area */}
-      <div className="absolute inset-y-0 left-0 w-[5%] bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-[5%] bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-[18%] bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
 
       {/* 3D Carousel Container */}
       <div 
         className="relative w-full h-full flex items-center justify-center"
-        style={{ perspective: "1000px" }}
+        style={{ perspective: `${config.perspective}px` }}
       >
         <motion.div
           className="relative w-0 h-0"
@@ -50,25 +79,16 @@ const ThreeDCarousel = () => {
              const count = cards.length;
              const rotation = index * (360 / count); 
              
-             // CONCAVE GEOMETRY: 
-             // Using Negative Radius puts the center of the card circle BEHIND the origin.
-             // This creates an "Immersive/Inside" curve where edges come towards the viewer.
-             const radius = -880; // Increased negative radius to add spacing between cards
-             
              return (
               <div 
                 key={card.id} 
-                className="absolute top-1/2 left-1/2 w-[300px] h-[500px] -ml-[150px] -mt-[225px] rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-white/5"
+                className="absolute top-1/2 left-1/2 rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-white/5"
                 style={{
-                  // Note: translateZ with negative radius puts it "inside" (concave).
-                  // rotateY(180deg) might be needed if they face the wrong way, 
-                  // but typically translateZ(-R) keeps them facing the center (camera).
-                  // Let's verify: In CSS 3D, translateZ(-100) pushes it away. 
-                  // So face 0 is at -750. Face 180 is at (rotate 180 -> translate -750) = +750?
-                  // No. rotate(180) turns it around, then translateZ(-750) pushes it "forward" in its local space (which is backwards in world).
-                  // Yes, so Face 180 is at Z=+750. 
-                  // Ideally we want the cards FACING CENTER to be visible.
-                  transform: `rotateY(${rotation}deg) translateZ(${radius}px)`,
+                  width: `${config.width}px`,
+                  height: `${config.height}px`,
+                  marginLeft: `${config.ml}px`,
+                  marginTop: `${config.mt}px`,
+                  transform: `rotateY(${rotation}deg) translateZ(${config.radius}px)`,
                   backfaceVisibility: "hidden", 
                 }}
               >

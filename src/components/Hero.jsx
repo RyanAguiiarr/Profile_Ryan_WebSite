@@ -19,13 +19,31 @@ const skills = [
   { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }
 ];
 
+// Import video asset
+import heroVideo from '../assets/paralax/Animação_de_Imagem_para_Website_em_Loop.mp4';
+
 const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20">
+    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-56 pb-48">
+      {/* Video Background - Full Screen Breakout */}
+      <div className="absolute top-0 left-1/2 -ml-[50vw] w-screen h-full z-0 overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover opacity-60"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        {/* Overlays for readability and atmosphere */}
+        <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80" />
+      </div>
       
 
 
@@ -84,7 +102,7 @@ const Hero = () => {
         {/* Right Content - Visual Placeholder (Video/Geometric) */}
         {/* Replaced with a marker ID for the Floating Card to track */}
         <div className="relative hidden lg:block h-full min-h-[400px] flex items-center justify-center pointer-events-none">
-             <div id="hero-card-pos" className="w-[350px] h-[500px] rounded-2xl border border-white/5 opacity-0" />
+             <div id="hero-card-pos" className="w-[350px] h-[500px] rounded-2xl border border-white/5 opacity-0 translate-x-56 translate-y-4" />
         </div>
 
       </div>

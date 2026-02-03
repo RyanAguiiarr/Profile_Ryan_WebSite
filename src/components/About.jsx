@@ -37,7 +37,7 @@ const About = () => {
             {/* Left Column - Target for Floating Card */}
             <div className="hidden lg:flex justify-center items-center h-full min-h-[500px] relative">
                  {/* This div tracks where the floating card should land */}
-                 <div id="about-card-pos" className="w-[350px] h-[500px] bg-transparent" />
+                 <div id="about-card-pos" className="w-[350px] h-[500px] bg-transparent translate-y-12" />
             </div>
 
             {/* Right Column - Content */}

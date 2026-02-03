@@ -70,7 +70,7 @@ const ScrollFloatingCard = () => {
     // Initial check
     updatePositions();
     
-    // Check again after a delay to ensure layout stability
+    // Check again after a delay to ensure layout stability (Updated for spacing adjustments)
     setTimeout(updatePositions, 500);
 
     window.addEventListener("resize", updatePositions);
