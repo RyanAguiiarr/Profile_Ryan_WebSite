@@ -1,6 +1,7 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import RevealOnScroll from "./ui/RevealOnScroll";
+import ParallaxElement from "./ui/ParallaxElement";
 
 const projects = [
   {
@@ -47,7 +48,9 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ParallaxElement key={index} offset={index % 2 === 0 ? 0 : 40} className="h-full">
+                <ProjectCard project={project} index={index} />
+            </ParallaxElement>
           ))}
         </div>
       </div>

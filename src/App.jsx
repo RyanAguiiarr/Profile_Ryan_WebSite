@@ -8,7 +8,7 @@ import TechStack3D from './components/TechStack3D';
 import Footer from './components/Footer';
 import FutureProjects from './components/FutureProjects';
 
-import ScrollFloatingCard from './components/ScrollFloatingCard';
+// import ScrollFloatingCard from './components/ScrollFloatingCard';
 import SmoothScroll from './components/ui/SmoothScroll';
 import SectionDimmer from './components/ui/SectionDimmer';
 import ThreeDCarousel from './components/ThreeDCarousel';
@@ -32,7 +32,7 @@ function App() {
         {/* MAIN CONTENT CONTAINER (The "Box") */}
         <div className="relative max-w-[1600px] mx-auto shadow-2xl min-h-screen z-10">
           <Navbar />
-          <ScrollFloatingCard />
+          {/* <ScrollFloatingCard /> */}
           <main>
             <Hero />
             <SectionDimmer>

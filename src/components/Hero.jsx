@@ -19,30 +19,25 @@ const skills = [
   { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }
 ];
 
-// Import video asset
-import heroVideo from '../assets/paralax/Animação_de_Imagem_para_Website_em_Loop.mp4';
+// Import parallax component
+import ParallaxHeroBackground from "./ui/ParallaxHeroBackground";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]); // Background moves down (slower scroll)
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]); // Content moves up slightly (faster separation)
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-56 pb-48">
+    <section id="home" className="relative min-h-[140vh] flex flex-col justify-center pt-56 pb-64">
       {/* Video Background - Full Screen Breakout */}
-      <div className="absolute top-0 left-1/2 -ml-[50vw] w-screen h-full z-0 overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover opacity-60"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+      {/* Parallax Background */}
+      {/* Parallax Background - Full Screen Breakout */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full z-0 overflow-hidden">
+        <ParallaxHeroBackground />
+        
         {/* Overlays for readability and atmosphere */}
-        <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80 pointer-events-none" />
       </div>
       
 
@@ -55,6 +50,7 @@ const Hero = () => {
         <div className="flex flex-col items-start text-left">
             {/* Badge */}
             <motion.div
+                style={{ y: y2 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -65,44 +61,49 @@ const Hero = () => {
             </motion.div>
 
             {/* Headline */}
-            <RevealOnScroll delay={0.2}>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
-                    Desenvolvedor <br />
-                    <span className="text-gray-400">Full Stack.</span>
-                </h1>
-            </RevealOnScroll>
+            <motion.div style={{ y: y1 }}>
+                <RevealOnScroll delay={0.2}>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
+                        Desenvolvedor <br />
+                        <span className="text-gray-400">Full Stack.</span>
+                    </h1>
+                </RevealOnScroll>
+            </motion.div>
 
             {/* Subtext */}
-            <RevealOnScroll delay={0.4}>
-                <p className="text-lg text-gray-400 max-w-lg leading-relaxed mb-10">
-                    Especialista em construir aplicações escaláveis e de alta performance. Mesclando a robustez do Java/Spring com a agilidade do React.
-                </p>
-            </RevealOnScroll>
+            <motion.div style={{ y: y1 }}>
+                <RevealOnScroll delay={0.4}>
+                    <p className="text-lg text-gray-400 max-w-lg leading-relaxed mb-10">
+                        Especialista em construir aplicações escaláveis e de alta performance. Mesclando a robustez do Java/Spring com a agilidade do React.
+                    </p>
+                </RevealOnScroll>
+            </motion.div>
             
-
-
             {/* Buttons */}
-            <RevealOnScroll delay={0.6}>
-                <div className="flex flex-wrap gap-4">
-                    <Button
-                        href="#contact"
-                    >
-                        Entre em Contato
-                    </Button>
-                    <Button
-                        href="#about"
-                    >
-                        Ver Portfólio
-                    </Button>
-                </div>
-            </RevealOnScroll>
+            <motion.div style={{ y: y1 }}>
+                <RevealOnScroll delay={0.6}>
+                    <div className="flex flex-wrap gap-4">
+                        <Button
+                            href="#contact"
+                        >
+                            Entre em Contato
+                        </Button>
+                        <Button
+                            href="#about"
+                        >
+                            Ver Portfólio
+                        </Button>
+                    </div>
+                </RevealOnScroll>
+            </motion.div>
         </div>
 
         {/* Right Content - Visual Placeholder (Video/Geometric) */}
         {/* Right Content - Visual Placeholder (Video/Geometric) */}
         {/* Replaced with a marker ID for the Floating Card to track */}
+        {/* Right Content - Visual Placeholder (Video/Geometric) */}
         <div className="relative hidden lg:block h-full min-h-[400px] flex items-center justify-center pointer-events-none">
-             <div id="hero-card-pos" className="w-[350px] h-[500px] rounded-2xl border border-white/5 opacity-0 translate-x-56 translate-y-4" />
+             {/* Spacer / Visual Balance if needed */}
         </div>
 
       </div>

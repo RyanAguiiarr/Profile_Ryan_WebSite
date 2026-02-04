@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import RevealOnScroll from './ui/RevealOnScroll';
+import ParallaxElement from './ui/ParallaxElement';
 
 const projects = [
   {
@@ -95,15 +96,19 @@ const FutureProjects = () => {
   return (
     <section ref={container} id="future-projects" className="relative pt-20">
       <div className="container mx-auto px-6 mb-24 text-center">
-            <RevealOnScroll>
-                <span className="text-primary font-medium tracking-wider uppercase text-sm">Coming Soon</span>
-                <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">Future Projects</h2>
-            </RevealOnScroll>
-             <RevealOnScroll delay={0.2}>
-                <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-                    A glimpse into upcoming works and experimental concepts currently in development.
-                </p>
-            </RevealOnScroll>
+            <ParallaxElement offset={-20}>
+                <RevealOnScroll>
+                    <span className="text-primary font-medium tracking-wider uppercase text-sm">Coming Soon</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">Future Projects</h2>
+                </RevealOnScroll>
+            </ParallaxElement>
+             <ParallaxElement offset={0}>
+                <RevealOnScroll delay={0.2}>
+                    <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+                        A glimpse into upcoming works and experimental concepts currently in development.
+                    </p>
+                </RevealOnScroll>
+             </ParallaxElement>
       </div>
 
       <div className="pb-[20vh]"> {/* Add padding bottom to allow last card to be fully viewed before next section */}

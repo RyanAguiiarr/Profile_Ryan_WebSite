@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ParallaxElement from './ui/ParallaxElement';
 
 const cards = [
   { id: 1, img: 'https://images.unsplash.com/photo-1518005052304-a4b5708994d5?q=80&w=1000&auto=format&fit=crop' },
@@ -61,11 +62,12 @@ const ThreeDCarousel = () => {
       <div className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
 
       {/* 3D Carousel Container */}
-      <div 
-        className="relative w-full h-full flex items-center justify-center"
-        style={{ perspective: `${config.perspective}px` }}
-      >
-        <motion.div
+      <ParallaxElement offset={50} className="w-full h-full flex items-center justify-center">
+        <div 
+            className="relative w-full h-full flex items-center justify-center"
+            style={{ perspective: `${config.perspective}px` }}
+        >
+            <motion.div
           className="relative w-0 h-0"
           style={{ transformStyle: "preserve-3d" }}
           animate={{ rotateY: 180 }} // Inverted rotation direction to match "natural" flow with concave
@@ -108,7 +110,8 @@ const ThreeDCarousel = () => {
              );
           })}
         </motion.div>
-      </div>
+        </div>
+      </ParallaxElement>
     </section>
   );
 };

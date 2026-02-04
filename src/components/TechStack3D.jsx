@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { Box } from "lucide-react"; // Keep Box for static center icon if needed, or replace it too. keeping for safety or replacing with a logo?
 import InfiniteMarquee from "./InfiniteMarquee";
 
@@ -46,6 +46,14 @@ const TechStack3D = () => {
   const rotateX = useTransform(mouseY, [-0.5, 0.5], [15, -15]);
   const rotateY = useTransform(mouseX, [-0.5, 0.5], [-15, 15]);
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const yBg = useTransform(scrollYProgress, [0, 1], [0, 200]); // Background moves
+  const yContent = useTransform(scrollYProgress, [0, 1], [0, -50]); // Content moves slightly
+
   const handleMouseMove = (e) => {
     const rect = containerRef.current.getBoundingClientRect();
     const width = rect.width;
@@ -74,7 +82,10 @@ const TechStack3D = () => {
     >
         {/* Background Gradients */}
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+        <motion.div 
+            style={{ y: yBg }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" 
+        />
 
         {/* =========================================
             MOBILE LAYOUT (Visible < lg)
@@ -82,17 +93,21 @@ const TechStack3D = () => {
         <div className="relative z-10 w-full flex flex-col items-center justify-center lg:hidden">
              
              {/* Badge */}
-             <div className="px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
-                 Powerful Integrations
-             </div>
+             <motion.div style={{ y: yContent }}>
+                <div className="px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
+                    Powerful Integrations
+                </div>
+             </motion.div>
 
              {/* Title */}
-             <h2 className="text-4xl sm:text-5xl font-bold text-center text-white leading-[1.1] mb-12 max-w-lg px-4">
-                 Seamlessly Integrate <br/>
-                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-                     Every App
-                 </span>
-             </h2>
+             <motion.div style={{ y: yContent }}>
+                <h2 className="text-4xl sm:text-5xl font-bold text-center text-white leading-[1.1] mb-12 max-w-lg px-4">
+                    Seamlessly Integrate <br/>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+                        Every App
+                    </span>
+                </h2>
+             </motion.div>
 
              {/* Visual Center - Glowing Orb & Marquees */}
              <div className="relative w-full py-12 flex flex-col gap-8 overflow-hidden">
@@ -132,7 +147,7 @@ const TechStack3D = () => {
            ========================================= */}
         <div className="hidden lg:flex flex-col items-center justify-center relative w-full h-full"> 
             {/* STATIC CENTER CONTENT */}
-            <div className="relative z-10 text-center pointer-events-none p-12">
+            <motion.div style={{ y: yContent }} className="relative z-10 text-center pointer-events-none p-12">
                 <div className="inline-block p-4 rounded-full bg-white/5 mb-6 border border-white/10">
                     <Box size={32} className="text-primary" />
                 </div>
@@ -145,13 +160,14 @@ const TechStack3D = () => {
                 <p className="text-gray-400 text-lg max-w-md mx-auto">
                     The tools creating the digital future.
                 </p>
-            </div>
+            </motion.div>
 
             {/* 3D ROTATING CONTAINER (ABSOLUTE OVERLAY) */}
             <motion.div
                 style={{ 
                     rotateX, 
-                    rotateY, 
+                    rotateY,
+                    y: yBg, // Apply parallax global y to the container
                     transformStyle: "preserve-3d" 
                 }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
