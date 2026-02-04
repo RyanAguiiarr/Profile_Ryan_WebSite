@@ -3,10 +3,15 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const frameCount = 196;
 
+// Global cache to persist images across remounts
+const cachedImages = [];
+let globalImagesLoaded = false;
+
 const ParallaxHeroBackground = () => {
   const canvasRef = useRef(null);
-  const [images, setImages] = useState([]);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  // We can initialize with cachedImages if they exist
+  const [images, setImages] = useState(cachedImages);
+  const [imagesLoaded, setImagesLoaded] = useState(globalImagesLoaded);
   const { scrollY } = useScroll();
   
   // Smooth out the scroll value for smoother frame transitions
@@ -14,8 +19,14 @@ const ParallaxHeroBackground = () => {
 
   // Preload images
   useEffect(() => {
+    // If we already have images globally, just ensure state is set and return
+    if (globalImagesLoaded && cachedImages.length > 0) {
+        setImages(cachedImages);
+        setImagesLoaded(true);
+        return;
+    }
+
     const loadImages = async () => {
-      const loadedImages = [];
       const promises = [];
 
       for (let i = 1; i <= frameCount; i++) {
@@ -31,14 +42,24 @@ const ParallaxHeroBackground = () => {
                 // Resolve with null to not break the chain, but handle it later
                 resolve(null); 
             };
-            loadedImages[i - 1] = img;
+            // Store directly in global cache index
+            cachedImages[i - 1] = img;
         });
         promises.push(promise);
       }
 
       await Promise.all(promises);
-      setImages(loadedImages.filter(img => img !== null));
+      
+      // cleanup nulls in global cache if any failed
+      // Note: This mutation of global array is safe here as it's just filling empty slots
+      const validImages = cachedImages.filter(img => img !== null);
+      
+      // Update local state
+      setImages(validImages);
       setImagesLoaded(true);
+      
+      // Mark global flag
+      globalImagesLoaded = true;
     };
 
     loadImages();
@@ -49,17 +70,35 @@ const ParallaxHeroBackground = () => {
     if (!imagesLoaded || images.length === 0 || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    
+    let animationFrameId;
 
     const render = () => {
-      if (!canvas || !canvasRef.current) return;
+      // Robustness: ensure we request next frame even if canvas is missing temporarily
+      // though 'canvas' var allows us to trust it exists if it existed at start.
+      if (!canvas) {
+          // Should not happen if effect started, but safety first
+          animationFrameId = requestAnimationFrame(render);
+          return;
+      }
       
       const ctx = canvas.getContext('2d');
-      if(!ctx) return;
+      if(!ctx) {
+           animationFrameId = requestAnimationFrame(render);
+           return;
+      }
 
+      // Check dimensions
+      if (canvas.width === 0 || canvas.height === 0) {
+           // Wait for resize
+           animationFrameId = requestAnimationFrame(render);
+           return;
+      }
+
+      const currentScroll = smoothScroll.get();
+      
       // Map scrollY to frame index
       const scrollMax = 1600; 
-      const currentScroll = smoothScroll.get();
       
       let frameIndex = Math.floor((currentScroll / scrollMax) * (images.length - 1));
       
@@ -68,48 +107,50 @@ const ParallaxHeroBackground = () => {
       if (frameIndex >= images.length) frameIndex = images.length - 1;
 
       const img = images[frameIndex];
-      if (!img) return;
+      if (!img) {
+          // Keep trying
+          animationFrameId = requestAnimationFrame(render);
+          return;
+      }
 
       // Draw 'cover' style
-      // Note: canvas.width/height are now scaled by dpr, so we use those
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
       
-      // Clear canvas
       ctx.clearRect(0, 0, canvasWidth, canvasHeight);
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
 
-      // Calculate scale to cover
       const scale = Math.max(canvasWidth / img.width, canvasHeight / img.height);
       const x = (canvasWidth / 2) - (img.width / 2) * scale;
       const y = (canvasHeight / 2) - (img.height / 2) * scale;
-
-      ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+      
+      try {
+        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+      } catch (e) {
+        console.error("Parallax draw error:", e);
+      }
+      
+      animationFrameId = requestAnimationFrame(render);
     };
 
-    // Subscribe to spring changes
-    const unsubscribe = smoothScroll.on("change", render);
+    // Start loop
+    console.log("Starting Parallax Loop. Images:", images.length);
+    render();
     
     // Resize handler
     const handleResize = () => {
        if(canvasRef.current) {
            const dpr = window.devicePixelRatio || 1;
-           // Set internal resolution to match display size * pixel ratio for sharpness
            canvasRef.current.width = window.innerWidth * dpr;
            canvasRef.current.height = window.innerHeight * dpr;
-           
-           // Keep CSS size to window size
-           // We don't strictly need to set style.width/height if using w-full h-full CSS classes,
-           // but changing internal width/height clears context, so we must re-render.
-           render();
        }
     };
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial size
 
     return () => {
-        unsubscribe();
+        cancelAnimationFrame(animationFrameId);
         window.removeEventListener('resize', handleResize);
     };
   }, [imagesLoaded, images, smoothScroll]);

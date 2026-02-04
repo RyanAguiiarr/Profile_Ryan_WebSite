@@ -2,25 +2,34 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ParallaxElement from './ui/ParallaxElement';
 
+import img1 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.png';
+import img2 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.png';
+import img3 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.png';
+import img4 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.png';
+import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.png';
+import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.png';
+import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.png';
+import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.png';
+
 const cards = [
-  { id: 1, img: 'https://images.unsplash.com/photo-1518005052304-a4b5708994d5?q=80&w=1000&auto=format&fit=crop' },
-  { id: 2, img: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1000&auto=format&fit=crop' },
-  { id: 3, img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop' },
-  { id: 4, img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop' },
-  { id: 5, img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop' },
-  { id: 6, img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop' },
-  { id: 7, img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop' },
-  { id: 8, img: 'https://images.unsplash.com/photo-1502452213786-a5bc0a67e963?q=80&w=1000&auto=format&fit=crop' },
+  { id: 1, img: img1 },
+  { id: 2, img: img2 },
+  { id: 3, img: img3 },
+  { id: 4, img: img4 },
+  { id: 5, img: img5 },
+  { id: 6, img: img6 },
+  { id: 7, img: img7 },
+  { id: 8, img: img8 },
   
-  // Duplicates to ensure full circle density (14 cards total for tight spacing)
-  { id: 9, img: 'https://images.unsplash.com/photo-1518005052304-a4b5708994d5?q=80&w=1000&auto=format&fit=crop' },
-  { id: 10, img: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1000&auto=format&fit=crop' },
-  { id: 11, img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop' },
-  { id: 12, img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop' },
-  { id: 13, img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop' },
-  { id: 14, img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop' },
-  { id: 15, img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop' },
-  { id: 16, img: 'https://images.unsplash.com/photo-1502452213786-a5bc0a67e963?q=80&w=1000&auto=format&fit=crop' },
+  // Duplicates to ensure full circle density (16 cards total for tight spacing)
+  { id: 9, img: img1 },
+  { id: 10, img: img2 },
+  { id: 11, img: img3 },
+  { id: 12, img: img4 },
+  { id: 13, img: img5 },
+  { id: 14, img: img6 },
+  { id: 15, img: img7 },
+  { id: 16, img: img8 },
 ];
 
 const ThreeDCarousel = () => {
