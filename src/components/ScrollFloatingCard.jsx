@@ -32,8 +32,8 @@ const GreetingBadge = () => {
 
 const ScrollFloatingCard = () => {
   const [positions, setPositions] = useState({
-    start: { x: 0, y: 0, width: 350, height: 500 }, // Updated default size
-    end: { x: 0, y: 0, width: 300, height: 400 },
+    start: { x: 0, y: 0, width: 350, height: 700 }, // Updated default size
+    end: { x: 0, y: 0, width: 350, height: 600 },
     ready: false,
   });
 

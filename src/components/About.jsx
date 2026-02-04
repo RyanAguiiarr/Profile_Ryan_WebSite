@@ -37,7 +37,7 @@ const About = () => {
          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24 items-center">
             
             {/* Left Column - Target for Floating Card */}
-            <div className="hidden lg:flex justify-center items-center h-full min-h-[500px] relative">
+            <div className="hidden lg:flex justify-center items-center h-full min-h-[750px] relative">
                  {/* This div tracks where the floating card should land */}
                  {/* Scale down slightly to fit well */}
                  <div className="scale-90 transform-gpu">
@@ -75,19 +75,19 @@ const About = () => {
                         className="grid grid-cols-3 gap-8 mb-12 w-full"
                     >
                         <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-lime-400">
+                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
                             <AnimatedCounter value={2} />+
                             </span>
                             <span className="text-white font-medium text-sm">Anos de Experiência</span>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-lime-400">
+                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
                             <AnimatedCounter value={20} />+
                             </span>
                             <span className="text-white font-medium text-sm">Projetos Acadêmicos</span>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-lime-400">
+                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
                                 <AnimatedCounter value={8} />+
                             </span>
                             <span className="text-white font-medium text-sm">Certificações</span>
@@ -126,7 +126,7 @@ const About = () => {
                      >
                          {/* Social Icons */}
                          <div className="flex items-center gap-6">
-                             <a href="https://www.linkedin.com/in/ryanaguiar2006/" className="text-white hover:text-lime-400 transition-colors"><Globe size={24} /></a>
+                             <a href="https://www.linkedin.com/in/ryanaguiar2006/" className="text-white hover:text-orange-500 transition-colors"><Globe size={24} /></a>
                          </div>
 
                          {/* CTA Button */}

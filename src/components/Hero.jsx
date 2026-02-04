@@ -24,8 +24,8 @@ import ParallaxHeroBackground from "./ui/ParallaxHeroBackground";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]); // Background moves down (slower scroll)
-  const y2 = useTransform(scrollY, [0, 500], [0, -50]); // Content moves up slightly (faster separation)
+  const y1 = useTransform(scrollY, [0, 500], [70, 200]); // Background moves down (slower scroll)
+  const y2 = useTransform(scrollY, [0, 500], [70, 200]); // Content moves up slightly (faster separation)
 
   return (
     <section id="home" className="relative min-h-[140vh] flex flex-col justify-center pt-56 pb-64">
