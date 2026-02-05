@@ -32,7 +32,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-8 md:py-24 relative">
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
           <RevealOnScroll>

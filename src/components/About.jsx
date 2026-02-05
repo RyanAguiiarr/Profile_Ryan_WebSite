@@ -31,7 +31,7 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative min-h-screen flex items-center">
+    <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center">
       <div className="container mx-auto px-6 max-w-6xl">
          
          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24 items-center">
@@ -46,11 +46,11 @@ const About = () => {
             </div>
 
             {/* Right Column - Content */}
-            <div className="flex flex-col items-start px-4">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left px-4">
                  {/* Title */}
                  <ParallaxElement offset={20}>
                     <RevealOnScroll>
-                        <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter">
+                        <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter">
                             Sobre Mim
                         </h2>
                     </RevealOnScroll>
@@ -59,7 +59,7 @@ const About = () => {
                  {/* Description */}
                  <ParallaxElement offset={-10}>
                     <RevealOnScroll delay={0.2}>
-                        <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-xl">
+                        <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                             Sou Desenvolvedor Full Stack em formação, com mais de dois anos de experiência prática em desenvolvimento de software e suporte em TI. Tenho domínio do ecossistema Spring (Boot, Security, Cloud) e React, aplicando boas práticas de código, design patterns e foco em performance e escalabilidade.
                         </p>
                     </RevealOnScroll>
@@ -72,25 +72,25 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="grid grid-cols-3 gap-8 mb-12 w-full"
+                        className="grid grid-cols-3 gap-6 mb-8 w-full max-w-md lg:max-w-full"
                     >
-                        <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
+                        <div className="flex flex-col gap-1 items-center lg:items-start">
+                            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-orange-500">
                             <AnimatedCounter value={2} />+
                             </span>
-                            <span className="text-white font-medium text-sm">Anos de Experiência</span>
+                            <span className="text-white font-medium text-xs sm:text-sm">Anos de Experiência</span>
                         </div>
-                        <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
+                        <div className="flex flex-col gap-1 items-center lg:items-start">
+                            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-orange-500">
                             <AnimatedCounter value={20} />+
                             </span>
-                            <span className="text-white font-medium text-sm">Projetos Acadêmicos</span>
+                            <span className="text-white font-medium text-xs sm:text-sm">Projetos Acadêmicos</span>
                         </div>
-                        <div className="flex flex-col gap-1">
-                            <span className="text-5xl md:text-6xl font-bold text-orange-500">
+                        <div className="flex flex-col gap-1 items-center lg:items-start">
+                            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-orange-500">
                                 <AnimatedCounter value={8} />+
                             </span>
-                            <span className="text-white font-medium text-sm">Certificações</span>
+                            <span className="text-white font-medium text-xs sm:text-sm">Certificações</span>
                         </div>
                     </motion.div>
                  </ParallaxElement>
@@ -102,15 +102,15 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="flex flex-wrap gap-12 mb-12"
+                        className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 mb-8"
                      >
-                         <div>
+                         <div className="text-center lg:text-left">
                              <h4 className="text-white font-bold mb-1">Telefone :</h4>
-                             <p className="text-gray-400">+55 (17) 99626-8399</p>
+                             <p className="text-gray-400 text-sm sm:text-base">+55 (17) 99626-8399</p>
                          </div>
-                         <div>
+                         <div className="text-center lg:text-left">
                              <h4 className="text-white font-bold mb-1">Email :</h4>
-                             <p className="text-gray-400">ryan.c.aguiiarr@gmail.com</p>
+                             <p className="text-gray-400 text-sm sm:text-base">ryan.c.aguiiarr@gmail.com</p>
                          </div>
                      </motion.div>
                  </ParallaxElement>
@@ -122,7 +122,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
-                        className="flex flex-col md:flex-row items-center gap-8 w-full"
+                        className="flex flex-col-reverse sm:flex-row items-center justify-center lg:justify-start gap-8 w-full"
                      >
                          {/* Social Icons */}
                          <div className="flex items-center gap-6">
@@ -130,7 +130,7 @@ const About = () => {
                          </div>
 
                          {/* CTA Button */}
-                         <Button className="px-8 py-3 uppercase tracking-wider">
+                         <Button className="px-8 py-3 uppercase tracking-wider w-full sm:w-auto">
                              Minha História
                          </Button>
                      </motion.div>

@@ -9,6 +9,11 @@ const ProfileCard = ({ className = "" }) => {
         <div className="absolute top-[-25%] left-[-20%] right-[-20%] h-[60%] bg-orange-500/40 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-80" />
 
+        {/* Hover Sheen Effect - Light Reflection */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-20 rounded-3xl">
+             <div className="absolute top-0 left-[-150%] h-full w-[80%] skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[150%] transition-[left] duration-1000 ease-in-out" />
+        </div>
+
         {/* Content Container */}
         <div className="relative h-full flex flex-col">
             {/* Image Area - Adjusted for taller card */}

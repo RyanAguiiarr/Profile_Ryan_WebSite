@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import About from './components/About';
-import TechStack3D from './components/TechStack3D';
 import Footer from './components/Footer';
-import FutureProjects from './components/FutureProjects';
-
-// import ScrollFloatingCard from './components/ScrollFloatingCard';
 import SmoothScroll from './components/ui/SmoothScroll';
 import SectionDimmer from './components/ui/SectionDimmer';
-import ThreeDCarousel from './components/ThreeDCarousel';
+import Loading from './components/ui/Loading';
+
+// Lazy Load Heavy Sections
+const Projects = lazy(() => import('./components/Projects'));
+const Contact = lazy(() => import('./components/Contact'));
+const About = lazy(() => import('./components/About'));
+const TechStack3D = lazy(() => import('./components/TechStack3D'));
+const FutureProjects = lazy(() => import('./components/FutureProjects'));
+const ThreeDCarousel = lazy(() => import('./components/ThreeDCarousel'));
 
 function App() {
   return (
@@ -35,24 +36,32 @@ function App() {
           {/* <ScrollFloatingCard /> */}
           <main>
             <Hero />
-            <SectionDimmer>
-              <About />
-            </SectionDimmer>
-            <SectionDimmer>
-              <ThreeDCarousel />
-            </SectionDimmer>
-            <SectionDimmer>
-              <TechStack3D />
-            </SectionDimmer>
-            <SectionDimmer>
-              <Projects />
-            </SectionDimmer>
-            <SectionDimmer>
-              <FutureProjects />
-            </SectionDimmer>
-            <SectionDimmer>
-              <Contact />
-            </SectionDimmer>
+            
+            <Suspense fallback={<Loading />}>
+                <SectionDimmer>
+                    <About />
+                </SectionDimmer>
+
+                <SectionDimmer>
+                    <ThreeDCarousel />
+                </SectionDimmer>
+
+                <SectionDimmer>
+                    <TechStack3D />
+                </SectionDimmer>
+
+                <SectionDimmer>
+                    <Projects />
+                </SectionDimmer>
+
+                <SectionDimmer>
+                    <FutureProjects />
+                </SectionDimmer>
+
+                <SectionDimmer>
+                    <Contact />
+                </SectionDimmer>
+            </Suspense>
           </main>
         </div>
       </SmoothScroll>

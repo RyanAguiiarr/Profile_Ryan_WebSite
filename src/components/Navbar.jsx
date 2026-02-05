@@ -1,11 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 import profileImg from "../assets/profile.png";
 import logoVideo from "../assets/video_logo.gif";
+import { LenisContext } from "./ui/SmoothScroll";
 
-const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
+const useSmoothScroll = () => {
+    const lenis = useContext(LenisContext);
+    
+    const scrollTo = (e, href) => {
+        e.preventDefault();
+        if (lenis) {
+            lenis.scrollTo(href, { duration: 1.5 });
+        } else {
+             const element = document.querySelector(href);
+             if(element) element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    return scrollTo;
+};
+
+
+const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
+    const scrollTo = useSmoothScroll();
+
+    return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -14,7 +35,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
       className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
       <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
-        <a href="#" className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
+        <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
           <img 
             src={logoVideo} 
             alt="Ryan Logo" 
@@ -28,12 +49,13 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => scrollTo(e, link.href)}
               className="text-gray-300 hover:text-white hover:text-primary transition-colors text-sm font-medium tracking-wide"
             >
               {link.name}
             </a>
           ))}
-          <Button href="#contact" className="px-6">
+          <Button href="#contact" onClick={(e) => scrollTo(e, "#contact")} className="px-6">
             Vamos Conversar
           </Button>
         </div>
@@ -61,7 +83,10 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                      scrollTo(e, link.href);
+                      setIsMobileMenuOpen(false);
+                  }}
                   className="text-lg font-medium text-gray-300 hover:text-primary"
                 >
                   {link.name}
@@ -72,9 +97,12 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => (
         )}
       </AnimatePresence>
     </motion.nav>
-);
+)};
 
-const FloatingNav = ({ navLinks }) => (
+const FloatingNav = ({ navLinks }) => {
+    const scrollTo = useSmoothScroll();
+
+    return (
     <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -83,7 +111,7 @@ const FloatingNav = ({ navLinks }) => (
         className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
     >
         {/* Profile / Home Icon */}
-        <a href="#home" className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
+        <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
              <img 
                 src={profileImg} 
                 alt="Home" 
@@ -97,6 +125,7 @@ const FloatingNav = ({ navLinks }) => (
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => scrollTo(e, link.href)}
                   className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
                 >
                   {link.name}
@@ -105,11 +134,11 @@ const FloatingNav = ({ navLinks }) => (
         </div>
 
         {/* CTA */}
-        <Button href="#contact" className="px-5 py-2 text-xs">
+        <Button href="#contact" onClick={(e) => scrollTo(e, "#contact")} className="px-5 py-2 text-xs">
             Contato
         </Button>
     </motion.div>
-);
+)};
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

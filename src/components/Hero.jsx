@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Hand } from "lucide-react";
 import InfiniteMarquee from "./InfiniteMarquee";
 import ProfileCard from "./ProfileCard";
 import RevealOnScroll from "./ui/RevealOnScroll";
@@ -24,11 +24,11 @@ import ParallaxHeroBackground from "./ui/ParallaxHeroBackground";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [70, 200]); // Background moves down (slower scroll)
-  const y2 = useTransform(scrollY, [0, 500], [70, 200]); // Content moves up slightly (faster separation)
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]); // Background moves down (slower scroll)
+  const y2 = useTransform(scrollY, [0, 500], [10, 200]); // Content moves up slightly (faster separation)
 
   return (
-    <section id="home" className="relative min-h-[140vh] flex flex-col justify-center pt-56 pb-64">
+    <section id="home" className="relative min-h-[140vh] flex flex-col justify-center pt-28 md:pt-56 pb-64">
       {/* Video Background - Full Screen Breakout */}
       {/* Parallax Background */}
       {/* Parallax Background - Full Screen Breakout */}
@@ -109,7 +109,7 @@ const Hero = () => {
       </div>
 
       {/* Mobile Layout - Reference Design */}
-      <div className="lg:hidden container mx-auto px-6 relative z-10 flex flex-col items-center justify-center pt-4 pb-12">
+      <div className="lg:hidden container mx-auto px-6 relative z-10 flex flex-col items-center justify-center pt-0 pb-8">
           <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -131,13 +131,19 @@ const Hero = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative w-full max-w-[280px] aspect-[3/4] my-2 z-10"
+              className="relative w-full max-w-[300px] aspect-[9/15] my-2 z-10"
           >
               <ProfileCard className="w-full h-full" />
               
               {/* Hi Badge */}
-              <div className="absolute -left-4 top-[65%] w-16 h-16 bg-[#bef264] text-black font-bold text-xl rounded-full flex items-center justify-center shadow-lg transform -rotate-12 z-20">
-                  Olá
+              <div className="absolute -left-4 top-[65%] w-16 h-16 bg-orange-500/20 backdrop-blur-md border border-orange-500/50 text-orange-500 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(249,115,22,0.4)] transform -rotate-12 z-20 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-transparent opacity-50" />
+                  <motion.div
+                    animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
+                  >
+                    <Hand size={32} strokeWidth={2} />
+                  </motion.div>
               </div>
           </motion.div>
 

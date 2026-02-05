@@ -52,7 +52,7 @@ const TechStack3D = () => {
   });
 
   const yBg = useTransform(scrollYProgress, [0, 1], [0, 200]); // Background moves
-  const yContent = useTransform(scrollYProgress, [0, 1], [0, -50]); // Content moves slightly
+  const yContent = useTransform(scrollYProgress, [0, 1], [150, 50]); // Content moves slightly
 
   const handleMouseMove = (e) => {
     const rect = containerRef.current.getBoundingClientRect();
@@ -77,7 +77,7 @@ const TechStack3D = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[150vh] flex items-center justify-center overflow-hidden py-24 md:py-32 perspective-1000"
+      className="relative min-h-[60vh] md:min-h-[150vh] -mt-12 md:mt-0 flex items-center justify-center overflow-hidden py-0 md:py-32 perspective-1000"
       style={{ perspective: "1000px" }}
     >
         {/* Background Gradients */}
@@ -90,54 +90,69 @@ const TechStack3D = () => {
         {/* =========================================
             MOBILE LAYOUT (Visible < lg)
            ========================================= */}
-        <div className="relative z-10 w-full flex flex-col items-center justify-center lg:hidden">
+        <div className="relative z-10 w-full flex flex-col items-center justify-center lg:hidden overflow-visible">
              
-             {/* Badge */}
-             <motion.div style={{ y: yContent }}>
-                <div className="px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
-                    Powerful Integrations
+             {/* Badge & Title - Compacted */}
+             <motion.div style={{ y: yContent }} className="mb-2 relative z-20">
+                <div className="px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md inline-block">
+                    Full Stack Arsenal
                 </div>
              </motion.div>
 
-             {/* Title */}
-             <motion.div style={{ y: yContent }}>
-                <h2 className="text-4xl sm:text-5xl font-bold text-center text-white leading-[1.1] mb-12 max-w-lg px-4">
-                    Seamlessly Integrate <br/>
+             <motion.div style={{ y: yContent }} className="mb-10 relative z-20">
+                <h2 className="text-3xl font-bold text-center text-white leading-[1.1] px-4">
+                    Integração <br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-                        Every App
+                        Total
                     </span>
                 </h2>
              </motion.div>
 
-             {/* Visual Center - Glowing Orb & Marquees */}
-             <div className="relative w-full py-12 flex flex-col gap-8 overflow-hidden">
-                 
-                 {/* Central Glowing Orb */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-blue-500/20 via-primary/10 to-transparent blur-3xl opacity-60 pointer-events-none rounded-full" />
-                 
-                 {/* Marquee Content - Updated for more items */}
-                 {/* Marquee Row 1 - Left */}
-                 <InfiniteMarquee speed={30} items={techStack.slice(0, 9).map((tech, i) => (
-                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm p-3">
-                         <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+             {/* 3D Tilted/Curved Rows Container */}
+             <div 
+                className="relative w-[150%] left-[-25%] h-[500px] flex flex-col justify-center gap-6 perspective-[1000px] mask-linear-fade"
+                style={{ 
+                    maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)'
+                }}
+            >
+                 {/* The Wall - Rotated and Tilted */}
+                 <div className="flex flex-col gap-5 transform rotate-[-5deg] rotate-x-[10deg] scale-110 origin-center">
+                     
+                     {/* Row 1 */}
+                     <div className="transform translate-x-[-10%] opacity-90">
+                         <InfiniteMarquee speed={25} items={techStack.slice(0, 8).map((tech, i) => (
+                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a]/80 border border-white/10 flex items-center justify-center backdrop-blur-md p-4 shadow-xl shadow-orange-500/5 group">
+                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             </div>
+                         ))} />
                      </div>
-                 ))} />
 
-                 {/* Marquee Row 2 - Right */}
-                 <InfiniteMarquee speed={35} reverse items={techStack.slice(9, 18).map((tech, i) => (
-                     <div key={i} className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm p-3">
-                         <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                     {/* Row 2 - Reverse */}
+                     <div className="transform translate-x-[5%] scale-105 z-10 my-[-10px]">
+                         <InfiniteMarquee speed={30} reverse items={techStack.slice(8, 16).map((tech, i) => (
+                             <div key={i} className="w-36 h-28 rounded-2xl bg-[#111] border border-orange-500/30 flex items-center justify-center backdrop-blur-md p-5 shadow-2xl shadow-orange-500/10 group">
+                                  {/* Gloss Effect */}
+                                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-30 rounded-2xl pointer-events-none" />
+                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             </div>
+                         ))} />
                      </div>
-                 ))} />
 
+                     {/* Row 3 */}
+                     <div className="transform translate-x-[-15%] opacity-90">
+                         <InfiniteMarquee speed={25} items={[...techStack.slice(16), ...techStack.slice(0, 4)].map((tech, i) => ( // Wrap around logic for fullness
+                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a]/80 border border-white/10 flex items-center justify-center backdrop-blur-md p-4 shadow-xl shadow-orange-500/5 group">
+                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             </div>
+                         ))} />
+                     </div>
+                 </div>
+
+                 {/* Vignette Overlay for Depth */}
+                 <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-20" />
              </div>
 
-             {/* Footer CTA */}
-             <div className="mt-12">
-                 <button className="px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all">
-                     Explore All
-                 </button>
-             </div>
 
         </div>
 
@@ -148,17 +163,15 @@ const TechStack3D = () => {
         <div className="hidden lg:flex flex-col items-center justify-center relative w-full h-full"> 
             {/* STATIC CENTER CONTENT */}
             <motion.div style={{ y: yContent }} className="relative z-10 text-center pointer-events-none p-12">
-                <div className="inline-block p-4 rounded-full bg-white/5 mb-6 border border-white/10">
-                    <Box size={32} className="text-primary" />
-                </div>
+        
                 <h2 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter text-white">
-                    My Tech <br/>
+                    Mes Domínios <br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
-                        Arsenal
+                        Tecnológicos
                     </span>
                 </h2>
                 <p className="text-gray-400 text-lg max-w-md mx-auto">
-                    The tools creating the digital future.
+                    As ferramentas que criam o futuro digital.
                 </p>
             </motion.div>
 
@@ -170,7 +183,7 @@ const TechStack3D = () => {
                     y: yBg, // Apply parallax global y to the container
                     transformStyle: "preserve-3d" 
                 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                className="absolute inset-0 flex items-center justify-center pointer-events-none will-change-transform"
             >
                 {/* Floating Tech Cards */}
                 {techStack.map((tech, index) => (
@@ -207,7 +220,7 @@ const FloatingCard = ({ tech }) => {
                 z: tech.z,
                 transform: `rotateX(0deg) rotateY(0deg) translateZ(${tech.z}px)` // Keep cards facing forward
             }}
-            className="absolute hidden md:flex flex-col items-center gap-2 group pointer-events-auto"
+            className="absolute hidden md:flex flex-col items-center gap-2 group pointer-events-auto will-change-transform"
             animate={{
                 y: [tech.y - 15, tech.y + 15, tech.y - 15],
             }}
@@ -217,14 +230,23 @@ const FloatingCard = ({ tech }) => {
                 ease: "easeInOut"
             }}
         >
-            <div className={`${sizeClasses[tech.size]} rounded-2xl bg-white/5 backdrop-blur-md px-0.5 pt-0.5 pb-2 shadow-2xl group-hover:scale-110 transition-transform duration-300 border border-white/10`}>
-                <div className="w-full h-full bg-black/40 rounded-[14px] flex items-center justify-center border border-white/5 relative overflow-hidden p-3">
-                     {/* Inner Gradient Shine */}
-                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-50" />
+            <div className={`${sizeClasses[tech.size]} relative rounded-2xl bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/15 shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
+                
+                {/* Top Orange Glow Effect */}
+                <div className="absolute top-[-25%] left-[-20%] right-[-20%] h-[60%] bg-orange-500/40 blur-[30px] rounded-full pointer-events-none mix-blend-screen" />
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-80" />
+
+                {/* Hover Sheen Effect */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-20 rounded-2xl">
+                    <div className="absolute top-0 left-[-150%] h-full w-[80%] skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[150%] transition-[left] duration-1000 ease-in-out" />
+                </div>
+
+                <div className="w-full h-full relative z-10 p-3 flex items-center justify-center">
                      <div className={`${iconSize[tech.size]} w-full h-full flex items-center justify-center`}>
                         <img 
                             src={tech.logo} 
                             alt={tech.name} 
+                            loading="lazy"
                             className="w-full h-full object-contain filter drop-shadow-md" 
                             style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}}
                         />
