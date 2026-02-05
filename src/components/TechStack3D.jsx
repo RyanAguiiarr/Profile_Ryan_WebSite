@@ -108,22 +108,18 @@ const TechStack3D = () => {
                 </h2>
              </motion.div>
 
-             {/* 3D Tilted/Curved Rows Container */}
+             {/* 3D Tilted/Curved Rows Container - Optimized for Mobile Performance */}
              <div 
-                className="relative w-[150%] left-[-25%] h-[500px] flex flex-col justify-center gap-6 perspective-[1000px] mask-linear-fade"
-                style={{ 
-                    maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
-                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)'
-                }}
+                className="relative w-[150%] left-[-25%] h-[500px] flex flex-col justify-center gap-6 perspective-[1000px] overflow-hidden"
             >
                  {/* The Wall - Rotated and Tilted */}
-                 <div className="flex flex-col gap-5 transform rotate-[-5deg] rotate-x-[10deg] scale-110 origin-center">
+                 <div className="flex flex-col gap-5 transform rotate-[-5deg] rotate-x-[10deg] scale-110 origin-center will-change-transform">
                      
                      {/* Row 1 */}
                      <div className="transform translate-x-[-10%] opacity-90">
                          <InfiniteMarquee speed={25} items={techStack.slice(0, 8).map((tech, i) => (
-                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a]/80 border border-white/10 flex items-center justify-center backdrop-blur-md p-4 shadow-xl shadow-orange-500/5 group">
-                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center p-4 group">
+                                 <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
                          ))} />
                      </div>
@@ -131,10 +127,8 @@ const TechStack3D = () => {
                      {/* Row 2 - Reverse */}
                      <div className="transform translate-x-[5%] scale-105 z-10 my-[-10px]">
                          <InfiniteMarquee speed={30} reverse items={techStack.slice(8, 16).map((tech, i) => (
-                             <div key={i} className="w-36 h-28 rounded-2xl bg-[#111] border border-orange-500/30 flex items-center justify-center backdrop-blur-md p-5 shadow-2xl shadow-orange-500/10 group">
-                                  {/* Gloss Effect */}
-                                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-30 rounded-2xl pointer-events-none" />
-                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             <div key={i} className="w-36 h-28 rounded-2xl bg-[#0a0a0a] border border-orange-500/30 flex items-center justify-center p-5 group">
+                                 <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
                          ))} />
                      </div>
@@ -142,15 +136,12 @@ const TechStack3D = () => {
                      {/* Row 3 */}
                      <div className="transform translate-x-[-15%] opacity-90">
                          <InfiniteMarquee speed={25} items={[...techStack.slice(16), ...techStack.slice(0, 4)].map((tech, i) => ( // Wrap around logic for fullness
-                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a]/80 border border-white/10 flex items-center justify-center backdrop-blur-md p-4 shadow-xl shadow-orange-500/5 group">
-                                 <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
+                             <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center p-4 group">
+                                 <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
                          ))} />
                      </div>
                  </div>
-
-                 {/* Vignette Overlay for Depth */}
-                 <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-20" />
              </div>
 
 

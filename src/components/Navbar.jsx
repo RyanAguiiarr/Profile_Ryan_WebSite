@@ -108,7 +108,7 @@ const FloatingNav = ({ navLinks }) => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
+        className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/90 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
     >
         {/* Profile / Home Icon */}
         <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
