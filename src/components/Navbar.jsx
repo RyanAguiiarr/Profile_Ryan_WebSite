@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 import profileImg from "../assets/profile.png";
 import logoVideo from "../assets/logoDemo.webp";
@@ -37,16 +36,17 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
     >
       <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
         <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
-          <img 
-            src={logoVideo}
-            srcSet={`${logoVideoMobile} 200w, ${logoVideo} 800w`}
-            sizes="(max-width: 768px) 200px, 184px"
-            alt="Ryan Logo" 
-            width="184"
-            height="102"
-            fetchPriority="high"
-            className="w-full h-auto" 
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcSet={logoVideoMobile} />
+            <img 
+              src={logoVideo}
+              alt="Ryan Logo" 
+              width="184"
+              height="102"
+              fetchPriority="high"
+              className="w-full h-auto" 
+            />
+          </picture>
         </a>
 
         {/* Desktop Menu */}
@@ -70,9 +70,13 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         <button
           className="absolute right-6 md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle Menu"
+          aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          )}
         </button>
       </div>
 

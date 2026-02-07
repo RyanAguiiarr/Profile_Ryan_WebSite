@@ -1,7 +1,8 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Hand } from "lucide-react";
+import Hand from "lucide-react/dist/esm/icons/hand";
 import InfiniteMarquee from "./InfiniteMarquee";
+// ... (keep middle content same, so I should probably use multi_replace or specific chunks)
 import ProfileCard from "./ProfileCard";
 import RevealOnScroll from "./ui/RevealOnScroll";
 import Button from "./ui/Button";
@@ -187,6 +188,8 @@ const Hero = () => {
                              <img 
                                 src={skill.logo} 
                                 alt={skill.name} 
+                                loading="lazy"
+                                decoding="async"
                                 className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg" 
                                 // Invert filter for Next.js if needed (it's black on transparent usually)
                                 style={skill.name === "Next.js" ? { filter: "invert(1)" } : {}}

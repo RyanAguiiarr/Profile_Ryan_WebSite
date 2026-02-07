@@ -37,27 +37,39 @@ function App() {
           <main>
             <Hero />
             
-            <Suspense fallback={<Loading />}>
-                <SectionDimmer>
+            {/* Aggressive Code Splitting: Independent Suspense boundaries to prioritize visible content */ }
+            
+            <Suspense fallback={<div className="h-screen" />}>
+                 <SectionDimmer>
                     <About />
                 </SectionDimmer>
+            </Suspense>
 
+            <Suspense fallback={<div className="h-[500px]" />}>
                 <SectionDimmer>
                     <ThreeDCarousel />
                 </SectionDimmer>
+            </Suspense>
 
+            <Suspense fallback={<div className="h-[800px]" />}>
                 <SectionDimmer>
                     <TechStack3D />
                 </SectionDimmer>
+            </Suspense>
 
+            <Suspense fallback={<div className="h-screen" />}>
                 <SectionDimmer>
                     <Projects />
                 </SectionDimmer>
+            </Suspense>
 
+            <Suspense fallback={<div className="h-screen" />}>
                 <SectionDimmer>
                     <FutureProjects />
                 </SectionDimmer>
+            </Suspense>
 
+            <Suspense fallback={<div className="h-[500px]" />}>
                 <SectionDimmer>
                     <Contact />
                 </SectionDimmer>

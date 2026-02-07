@@ -19,15 +19,17 @@ const ProfileCard = ({ className = "" }) => {
         <div className="relative h-full flex flex-col">
             {/* Image Area - Adjusted for taller card */}
             <div className="relative flex-1 overflow-hidden m-3 rounded-2xl border border-white/5">
-                 <img 
-                    src={profileImg}
-                    srcSet={`${profileImgMobile} 300w, ${profileImg} 800w`}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="Ryan Cantareli"
-                    fetchPriority="high"
-                    decoding="async"
-                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
-                />
+                 <picture className="w-full h-full block">
+                    <source media="(max-width: 768px)" srcSet={profileImgMobile} />
+                    <img 
+                        src={profileImg}
+                        alt="Ryan Cantareli"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105 aspect-[300/700] md:aspect-[400/700]" 
+                    />
+                 </picture>
                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
             </div>
 
