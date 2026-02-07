@@ -71,7 +71,7 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
 
         {/* Content - Centered */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center p-6 md:p-12 gap-4 md:gap-6">
-             <span className="bg-orange-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full uppercase tracking-wider inline-block">
+             <span className="bg-orange-800 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full uppercase tracking-wider inline-block">
                 {category}
             </span>
             

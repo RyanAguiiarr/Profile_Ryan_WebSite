@@ -10,26 +10,34 @@ import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ng
 import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.jpg';
 import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.jpg';
 import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.jpg';
+import img1Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7-mobile.jpg';
+import img2Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw-mobile.jpg';
+import img3Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6-mobile.jpg';
+import img4Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d-mobile.jpg';
+import img5Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw-mobile.jpg';
+import img6Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47-mobile.jpg';
+import img7Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6-mobile.jpg';
+import img8Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf-mobile.jpg';
 
 const cards = [
-  { id: 1, img: img1 },
-  { id: 2, img: img2 },
-  { id: 3, img: img3 },
-  { id: 4, img: img4 },
-  { id: 5, img: img5 },
-  { id: 6, img: img6 },
-  { id: 7, img: img7 },
-  { id: 8, img: img8 },
+  { id: 1, img: img1, imgMobile: img1Mobile },
+  { id: 2, img: img2, imgMobile: img2Mobile },
+  { id: 3, img: img3, imgMobile: img3Mobile },
+  { id: 4, img: img4, imgMobile: img4Mobile },
+  { id: 5, img: img5, imgMobile: img5Mobile },
+  { id: 6, img: img6, imgMobile: img6Mobile },
+  { id: 7, img: img7, imgMobile: img7Mobile },
+  { id: 8, img: img8, imgMobile: img8Mobile },
   
   // Duplicates to ensure full circle density (16 cards total for tight spacing)
-  { id: 9, img: img1 },
-  { id: 10, img: img2 },
-  { id: 11, img: img3 },
-  { id: 12, img: img4 },
-  { id: 13, img: img5 },
-  { id: 14, img: img6 },
-  { id: 15, img: img7 },
-  { id: 16, img: img8 },
+  { id: 9, img: img1, imgMobile: img1Mobile },
+  { id: 10, img: img2, imgMobile: img2Mobile },
+  { id: 11, img: img3, imgMobile: img3Mobile },
+  { id: 12, img: img4, imgMobile: img4Mobile },
+  { id: 13, img: img5, imgMobile: img5Mobile },
+  { id: 14, img: img6, imgMobile: img6Mobile },
+  { id: 15, img: img7, imgMobile: img7Mobile },
+  { id: 16, img: img8, imgMobile: img8Mobile },
 ];
 
 const ThreeDCarousel = () => {
@@ -106,6 +114,8 @@ const ThreeDCarousel = () => {
                 <div className="w-full h-full relative group cursor-pointer">
                   <img 
                     src={card.img} 
+                    srcSet={`${card.imgMobile} 300w, ${card.img} 800w`}
+                    sizes="(max-width: 768px) 280px, 400px"
                     alt={`Gallery ${card.id}`} 
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 aspect-[300/650] md:aspect-[400/700]" 

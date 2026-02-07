@@ -1,5 +1,6 @@
 import React from "react";
 import profileImg from "../assets/profile.png";
+import profileImgMobile from "../assets/profile-mobile.webp";
 
 const ProfileCard = ({ className = "" }) => {
   return (
@@ -19,7 +20,9 @@ const ProfileCard = ({ className = "" }) => {
             {/* Image Area - Adjusted for taller card */}
             <div className="relative flex-1 overflow-hidden m-3 rounded-2xl border border-white/5">
                  <img 
-                    src={profileImg} 
+                    src={profileImg}
+                    srcSet={`${profileImgMobile} 300w, ${profileImg} 800w`}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     alt="Ryan Cantareli"
                     fetchPriority="high"
                     decoding="async"

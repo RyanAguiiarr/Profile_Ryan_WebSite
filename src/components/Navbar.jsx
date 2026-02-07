@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 import profileImg from "../assets/profile.png";
 import logoVideo from "../assets/logoDemo.webp";
+import logoVideoMobile from "../assets/logoDemo-mobile.webp";
 import { LenisContext } from "./ui/SmoothScroll";
 
 const useSmoothScroll = () => {
@@ -37,10 +38,13 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
       <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
         <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
           <img 
-            src={logoVideo} 
+            src={logoVideo}
+            srcSet={`${logoVideoMobile} 200w, ${logoVideo} 800w`}
+            sizes="(max-width: 768px) 200px, 184px"
             alt="Ryan Logo" 
             width="184"
             height="102"
+            fetchPriority="high"
             className="w-full h-auto" 
           />
         </a>
@@ -66,6 +70,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         <button
           className="absolute right-6 md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
