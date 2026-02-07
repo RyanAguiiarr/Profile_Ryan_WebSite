@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
-import { Facebook, Instagram, Twitter, Dribbble, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import ProfileCard from "./ProfileCard";
 import RevealOnScroll from "./ui/RevealOnScroll";
 import Button from "./ui/Button";
@@ -105,11 +105,11 @@ const About = () => {
                         className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 mb-8"
                      >
                          <div className="text-center lg:text-left">
-                             <h4 className="text-white font-bold mb-1">Telefone :</h4>
+                             <h3 className="text-white font-bold mb-1">Telefone :</h3>
                              <p className="text-gray-400 text-sm sm:text-base">+55 (17) 99626-8399</p>
                          </div>
                          <div className="text-center lg:text-left">
-                             <h4 className="text-white font-bold mb-1">Email :</h4>
+                             <h3 className="text-white font-bold mb-1">Email :</h3>
                              <p className="text-gray-400 text-sm sm:text-base">ryan.c.aguiiarr@gmail.com</p>
                          </div>
                      </motion.div>
@@ -126,7 +126,7 @@ const About = () => {
                      >
                          {/* Social Icons */}
                          <div className="flex items-center gap-6">
-                             <a href="https://www.linkedin.com/in/ryanaguiar2006/" className="text-white hover:text-orange-500 transition-colors"><Globe size={24} /></a>
+                             <a href="https://www.linkedin.com/in/ryanaguiar2006/" aria-label="LinkedIn Profile" className="text-white hover:text-orange-500 transition-colors"><Globe size={24} /></a>
                          </div>
 
                          {/* CTA Button */}

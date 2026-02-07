@@ -21,6 +21,8 @@ const ProfileCard = ({ className = "" }) => {
                  <img 
                     src={profileImg} 
                     alt="Ryan Cantareli"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />

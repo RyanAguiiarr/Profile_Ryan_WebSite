@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ParallaxElement from './ui/ParallaxElement';
 
-import img1 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.png';
-import img2 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.png';
-import img3 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.png';
-import img4 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.png';
-import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.png';
-import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.png';
-import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.png';
-import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.png';
+import img1 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.jpg';
+import img2 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.jpg';
+import img3 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.jpg';
+import img4 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.jpg';
+import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.jpg';
+import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.jpg';
+import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.jpg';
+import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.jpg';
 
 const cards = [
   { id: 1, img: img1 },
@@ -107,7 +107,8 @@ const ThreeDCarousel = () => {
                   <img 
                     src={card.img} 
                     alt={`Gallery ${card.id}`} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 aspect-[300/650] md:aspect-[400/700]" 
                   />
                   {/* Dark overlay that lightens on hover */}
                   <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-300" />

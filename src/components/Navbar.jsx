@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 import profileImg from "../assets/profile.png";
-import logoVideo from "../assets/video_logo.gif";
+import logoVideo from "../assets/logoDemo.webp";
 import { LenisContext } from "./ui/SmoothScroll";
 
 const useSmoothScroll = () => {
@@ -39,6 +39,8 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
           <img 
             src={logoVideo} 
             alt="Ryan Logo" 
+            width="184"
+            height="102"
             className="w-full h-auto" 
           />
         </a>

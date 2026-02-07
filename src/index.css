@@ -37,12 +37,12 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea580c; /* Orange-600 */
+  background: #c2410c; /* Orange-700 */
 }
 
 /* Selection color */
 ::selection {
-  background-color: #ea580c;
+  background-color: #c2410c;
   color: white;
 }
 

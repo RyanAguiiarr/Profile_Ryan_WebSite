@@ -35,6 +35,7 @@ const Contact = () => {
                 <a 
                 href="mailto:ryan.c.aguiiarr@gmail.com"
                 className="group flex items-center gap-3 text-2xl md:text-3xl font-medium hover:text-primary transition-colors"
+                aria-label="Send email to ryan.c.aguiiarr@gmail.com"
                 >
                 <Mail className="hidden md:block" />
                 ryan.c.aguiiarr@gmail.com

@@ -41,6 +41,7 @@ const ProjectCard = ({ project, index }) => {
                 href={project.github}
                 className="p-3 w-12 h-12 flex items-center justify-center"
                 title="View Code"
+                aria-label="View Code on GitHub"
               >
                 <Github size={20} />
               </Button>
@@ -50,6 +51,7 @@ const ProjectCard = ({ project, index }) => {
                 href={project.demo}
                 className="p-3 w-12 h-12 flex items-center justify-center"
                 title="Live Demo"
+                aria-label="View Live Demo"
               >
                 <ExternalLink size={20} />
               </Button>
