@@ -29,110 +29,94 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [10, 200]); // Content moves up slightly (faster separation)
 
   return (
-    <section id="home" className="relative min-h-[140vh] flex flex-col justify-center pt-28 md:pt-56 pb-64">
+    <section id="home" className="relative min-h-[140vh] flex flex-col justify-start pt-32 md:pt-48 pb-64">
       {/* Video Background - Full Screen Breakout */}
       {/* Parallax Background */}
       {/* Parallax Background - Full Screen Breakout */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full z-0 overflow-hidden">
-        <ParallaxHeroBackground />
+        <ParallaxHeroBackground>
+             {/* Desktop Layout - Injected as Children */}
+              <div className="hidden lg:grid container mx-auto px-6 relative h-full pt-[19%] grid-cols-2 gap-20 items-start">
+                
+                {/* Left Content - Full Stack */}
+                <div className="flex flex-col items-start text-left">
+                    {/* Headline Left */}
+                    <motion.div style={{ y: y1 }} className="relative z-10 w-full">
+                        <RevealOnScroll delay={0.2}>
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-start py-0">
+                                <span className="font-script text-4xl md:text-5xl text-orange-500 ml-2 mb-20 z-20 relative lowercase">desenvolvedor</span>
+                                <span className="font-bebas text-[9rem] md:text-[11rem] lg:text-[13rem] tracking-tight text-white leading-none z-10 relative scale-y-150 origin-bottom pb-0">
+                                    FULL STACK
+                                </span>
+                            </h1>
+                        </RevealOnScroll>
+                    </motion.div>
+
+                    {/* Subtext & Buttons */}
+                    <motion.div style={{ y: y1 }} className="max-w-md ml-4 mt-[-40px]">
+                         <RevealOnScroll delay={0.4}>
+                            <p className="text-lg text-gray-400 leading-relaxed mb-8 font-light">
+                                Especialista em construir aplicações escaláveis e de alta performance. 
+                            </p>
+                            <div className="flex justify-start gap-4">
+                                <Button href="#contact" variant="primary">Entre em Contato</Button>
+                            </div>
+                        </RevealOnScroll>
+                    </motion.div>
+                </div>
+
+                {/* Right Content - Software Engineer */}
+                <div className="flex flex-col items-end text-right"> 
+                     {/* Headline Right */}
+                    <motion.div style={{ y: y1 }} className="relative z-10 w-full">
+                        <RevealOnScroll delay={0.3}>
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-end py-0">
+                                <span className="font-script text-4xl md:text-5xl text-orange-500 mr-4 mb-20 z-20 relative lowercase">engenheiro de</span>
+                                <span className="font-bebas text-[9rem] md:text-[11rem] lg:text-[13rem] tracking-tight text-white leading-none z-10 relative scale-y-150 origin-bottom pb-0">
+                                    SOFTWARE
+                                </span>
+                            </h1>
+                        </RevealOnScroll>
+                    </motion.div>
+
+                     <motion.div style={{ y: y1 }} className="max-w-md mr-4 mt-[-40px]">
+                         <RevealOnScroll delay={0.5}>
+                            <p className="text-lg text-gray-400 leading-relaxed mb-8 font-light">
+                                Mesclando a robustez do Java/Spring com a agilidade do React.
+                            </p>
+                            <div className="flex justify-end gap-4">
+                                 <Button href="#about" variant="secondary">Ver Portfólio</Button>
+                            </div>
+                        </RevealOnScroll>
+                    </motion.div>
+                </div>
+
+              </div>
+        </ParallaxHeroBackground>
         
-        {/* Overlays for readability and atmosphere */}
+        {/* Overlays for readability and atmosphere - Keeping original overlays as top-level if needed, but Parallax has its own now. 
+            Let's keep these if they provide extra darkness. */}
         <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80 pointer-events-none" />
-      </div>
-      
-
-
-
-      {/* Desktop Layout */}
-      <div className="hidden lg:grid container mx-auto px-6 relative z-10 grid-cols-2 gap-12 items-center">
-        
-        {/* Left Content */}
-        <div className="flex flex-col items-start text-left">
-            {/* Badge */}
-            <motion.div
-                style={{ y: y2 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 mb-8"
-            >
-                <span className="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wide">Novo</span>
-                <span className="text-sm text-gray-300 font-medium">Disponível para projetos</span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.div style={{ y: y1 }}>
-                <RevealOnScroll delay={0.2}>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
-                        Desenvolvedor <br />
-                        <span className="text-gray-400">Full Stack.</span>
-                    </h1>
-                </RevealOnScroll>
-            </motion.div>
-
-            {/* Subtext */}
-            <motion.div style={{ y: y1 }}>
-                <RevealOnScroll delay={0.4}>
-                    <p className="text-lg text-gray-400 max-w-lg leading-relaxed mb-10">
-                        Especialista em construir aplicações escaláveis e de alta performance. Mesclando a robustez do Java/Spring com a agilidade do React.
-                    </p>
-                </RevealOnScroll>
-            </motion.div>
-            
-            {/* Buttons */}
-            <motion.div style={{ y: y1 }}>
-                <RevealOnScroll delay={0.6}>
-                    <div className="flex flex-wrap gap-4">
-                        <Button
-                            href="#contact"
-                        >
-                            Entre em Contato
-                        </Button>
-                        <Button
-                            href="#about"
-                        >
-                            Ver Portfólio
-                        </Button>
-                    </div>
-                </RevealOnScroll>
-            </motion.div>
-        </div>
-
-        {/* Right Content - Visual Placeholder (Video/Geometric) */}
-        {/* Right Content - Visual Placeholder (Video/Geometric) */}
-        {/* Replaced with a marker ID for the Floating Card to track */}
-        {/* Right Content - Visual Placeholder (Video/Geometric) */}
-        <div className="relative hidden lg:block h-full min-h-[400px] flex items-center justify-center pointer-events-none">
-             {/* Spacer / Visual Balance if needed */}
-        </div>
-
       </div>
 
       {/* Mobile Layout - Reference Design */}
       <div className="lg:hidden container mx-auto px-6 relative z-10 flex flex-col items-center justify-center pt-0 pb-8">
-          <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-white/60 font-medium tracking-widest uppercase text-xs mb-2"
-          >
-              RYAN CANTARELI
-          </motion.p>
-          
           <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl font-black text-white tracking-tighter uppercase leading-none mb-4 z-0"
+              className="mt-6 flex flex-col items-center"
           >
-              FULL STACK
+              <span className="font-script text-4xl text-orange-500 mb-[-10px] z-10 relative lowercase">desenvolvedor</span>
+              <span className="font-bebas text-[7rem] tracking-tighter text-white leading-none z-0 relative">FULL</span>
           </motion.h1>
 
           <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative w-full max-w-[300px] aspect-[9/15] my-2 z-10"
+              className="relative w-full max-w-[300px] aspect-[9/15] my-[-20px] z-10" // Negative margin to overlap with text
           >
               <ProfileCard className="w-full h-full" />
               
@@ -152,9 +136,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-6xl font-black text-white tracking-tighter uppercase leading-none mt-4 z-0"
+              className="font-bebas text-[7rem] text-white tracking-tighter uppercase leading-none mt-[-20px] z-20 relative"
           >
-              DEVELOPER
+              STACK
           </motion.h1>
 
           <motion.p

@@ -14,6 +14,8 @@ export default {
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
+        bebas: ['"Bebas Neue"', 'sans-serif'],
+        script: ['"Dancing Script"', 'cursive'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
