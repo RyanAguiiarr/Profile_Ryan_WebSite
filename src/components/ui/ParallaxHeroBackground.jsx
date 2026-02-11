@@ -70,12 +70,12 @@ const ParallaxHeroBackground = ({ children }) => {
             {/* Layer 2: Person (Middle) */}
             <motion.div 
                 style={{ y: yPersonLayer }}
-                className="absolute inset-0 w-full h-full z-20 flex items-end justify-center pointer-events-none"
+                className="absolute inset-0 w-full h-full z-20 flex items-end max-[800px]:items-center justify-center pointer-events-none"
             >
                 <img 
                     src={pessoaParalax} 
                     alt="Ryan" 
-                    className="h-[90%] w-auto object-contain object-bottom" 
+                    className="h-[90%] max-[800px]:h-[85%] max-[800px]:mb-0 w-auto object-contain object-bottom max-[800px]:object-center" 
                 />
             </motion.div>
 
@@ -90,6 +90,9 @@ const ParallaxHeroBackground = ({ children }) => {
                     className="w-[300px] md:w-[500px] object-contain drop-shadow-2xl opacity-0" // Hiding logic based on user request? No, keep it. Wait, user didn't say remove logo.
                 />
             </motion.div>
+            
+            {/* Mobile Bottom Mask Gradient to hide body cutoff */}
+            <div className="absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-[#050505] via-[#050505] to-transparent z-25 pointer-events-none hidden max-[800px]:block" />
             
             {/* Gradient Overlay */}
              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/30 z-40 pointer-events-none" />

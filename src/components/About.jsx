@@ -29,10 +29,13 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
   return <span ref={ref}>0</span>;
 };
 
+import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+
 const About = () => {
   return (
-    <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center bg-black overflow-hidden">
+      <AboutBackgroundShapes />
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
          
          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-24 items-center">
             
