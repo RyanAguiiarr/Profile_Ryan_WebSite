@@ -33,7 +33,7 @@ import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
 
 const About = () => {
   return (
-    <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center bg-black overflow-hidden">
+    <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center bg-black overflow-hidden w-screen left-1/2 -translate-x-1/2">
       <AboutBackgroundShapes />
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
          

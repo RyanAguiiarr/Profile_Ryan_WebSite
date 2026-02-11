@@ -36,7 +36,7 @@ const Hero = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full z-0 overflow-hidden">
         <ParallaxHeroBackground>
              {/* Desktop Layout - Injected as Children */}
-              <div className="hidden lg:grid container mx-auto px-6 relative h-full pt-[35%] xl:pt-[26%] min-[1535px]:pt-[25%] grid-cols-2 gap-20 items-start">
+              <div className="hidden lg:grid container mx-auto px-6 relative h-full lg:pt-[390px] xl:pt-[360px] min-[1535px]:pt-[350px] grid-cols-2 gap-20 items-start">
                 
                 {/* Left Content - Full Stack */}
                 <div className="flex flex-col items-start text-left">
@@ -94,7 +94,7 @@ const Hero = () => {
               </div>
               
               {/* Mobile Layout - Moved Inside for Z-Index */}
-              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[100%]">
+              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[390px] sm:pb-[380px] md:pb-[500px]">
                   <div className="grid grid-cols-2 gap-2 w-full">
                       {/* Left Side */}
                       <motion.div 

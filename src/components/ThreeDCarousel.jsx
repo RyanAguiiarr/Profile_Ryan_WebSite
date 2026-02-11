@@ -40,6 +40,9 @@ const cards = [
   { id: 16, img: img8, imgMobile: img8Mobile },
 ];
 
+
+import AboutBackgroundShapes from './ui/AboutBackgroundShapes';
+
 const ThreeDCarousel = () => {
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -73,13 +76,15 @@ const ThreeDCarousel = () => {
   return (
     // Increased scale to ensure cards aren't cut off and fill the field
     // Added breakout styles: w-screen and negative margins to escape the max-w-[1600px] parent
-    <section className="relative h-[500px] md:h-[800px] -mb-32 md:mb-0 w-screen left-1/2 -ml-[50vw] overflow-hidden flex flex-col items-center justify-center">
+    <section className="relative h-[500px] md:h-[800px] -mb-32 md:mb-0 w-screen left-1/2 -ml-[50vw] overflow-hidden flex flex-col items-center justify-center bg-black">
+      <AboutBackgroundShapes showShapes={false} />
+
       {/* Adjusted Masks - thinner to maximize visible area */}
       <div className="absolute inset-y-0 left-0 w-[18%] bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
 
       {/* 3D Carousel Container */}
-      <ParallaxElement offset={50} className="w-full h-full flex items-center justify-center">
+      <ParallaxElement offset={50} className="w-full h-full flex items-center justify-center relative z-10">
         <div 
             className="relative w-full h-full flex items-center justify-center"
             style={{ perspective: `${config.perspective}px` }}

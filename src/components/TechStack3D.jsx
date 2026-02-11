@@ -3,6 +3,8 @@ import { motion, useMotionValue, useSpring, useTransform, useScroll } from "fram
 import { Box } from "lucide-react"; // Keep Box for static center icon if needed, or replace it too. keeping for safety or replacing with a logo?
 import InfiniteMarquee from "./InfiniteMarquee";
 
+import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+
 // Tech stack data with official logos
 // Size: 'sm' | 'md' | 'lg'
 const techStack = [
@@ -77,15 +79,11 @@ const TechStack3D = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[60vh] md:min-h-[150vh] -mt-12 md:mt-0 flex items-center justify-center overflow-hidden py-0 md:py-32 perspective-1000"
+      className="relative min-h-[60vh] md:min-h-[150vh] -mt-12 md:mt-0 flex items-center justify-center overflow-hidden py-0 md:py-32 perspective-1000 bg-black w-screen left-1/2 -ml-[50vw]"
       style={{ perspective: "1000px" }}
     >
-        {/* Background Gradients */}
-
-        <motion.div 
-            style={{ y: yBg }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" 
-        />
+        {/* Background Shapes */}
+        <AboutBackgroundShapes />
 
         {/* =========================================
             MOBILE LAYOUT (Visible < lg)

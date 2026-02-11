@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const AboutBackgroundShapes = () => {
+const AboutBackgroundShapes = ({ showShapes = true }) => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -15,33 +15,30 @@ const AboutBackgroundShapes = () => {
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none">
       
-      {/* Top Horizon Arc */}
-      <motion.div
-        style={{ y: yTop }}
-        className="absolute -top-[100px] left-1/2 -translate-x-1/2 w-[200%] h-[400px] z-0"
-      >
-        {/* 
-            Geometry: w-[200%] + h-[400px] creates a very shallow, wide arc.
-            Gradient: Subtle "lighting" from top (lighter) to bottom (darker orange).
-            Shadow: Added for that "glowing edge" feel.
-        */}
-        <div className="w-full h-full rounded-b-[100%] bg-gradient-to-b from-[#ff8c00] to-[#ff4500] shadow-[0_10px_50px_rgba(255,69,0,0.3)]" />
-      </motion.div>
+      {showShapes && (
+        <>
+          {/* Top Shape - Quarter-Ellipse Filling Top-Left Corner */}
+          <motion.div
+            style={{ y: yTop }}
+            className="absolute top-0 left-0 w-[55%] h-[350px] z-0 rounded-br-[100%] bg-gradient-to-b from-[#ff8c00] to-[#ff4500] shadow-[10px_10px_50px_rgba(255,69,0,0.3)] origin-top-left"
+          >
+            {/* No inner div needed if background is direct, but keeping structure for consistency if needed later */}
+          </motion.div>
 
-      {/* Bottom Horizon Arc */}
-      <motion.div
-        style={{ y: yBottom }}
-        className="absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-[200%] h-[400px] z-0"
-      >
-         {/* 
-            Geometry: Inverted shallow arc.
-            Gradient: Lighter at the "top" of the shape (which is the bottom of the screen effectively) 
-            to create the volume/lighting effect.
-         */}
-         <div className="w-full h-full rounded-t-[100%] bg-gradient-to-t from-[#ff8c00] to-[#ff4500] shadow-[0_-10px_50px_rgba(255,69,0,0.3)]" />
-         
-         {/* Optional: subtle highlight star if strictly needed, but sticking to shapes first */}
-      </motion.div>
+          {/* Bottom Shape - Quarter-Ellipse Filling Bottom-Right Corner */}
+          <motion.div
+            style={{ y: yBottom }}
+            className="absolute bottom-0 right-0 w-[45%] h-[250px] z-0 rounded-tl-[100%] bg-gradient-to-t from-[#ff8c00] to-[#ff4500] shadow-[-10px_-10px_50px_rgba(255,69,0,0.3)] origin-bottom-right"
+          >
+          </motion.div>
+        </>
+      )}
+
+      {/* Vignette - Bottom Up Black Light */}
+      <div className="absolute bottom-0 w-full h-[300px] bg-gradient-to-t from-black via-black/50 to-transparent z-10 pointer-events-none" />
+
+      {/* Vignette - Top Down Black Light */}
+      <div className="absolute top-0 w-full h-[300px] bg-gradient-to-b from-black via-black/50 to-transparent z-10 pointer-events-none" />
     </div>
   );
 };

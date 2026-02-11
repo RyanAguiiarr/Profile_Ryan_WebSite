@@ -30,9 +30,12 @@ const projects = [
   }
 ];
 
+import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-8 md:py-24 relative">
+    <section id="projects" className="py-8 md:py-24 relative bg-black w-screen left-1/2 -ml-[50vw] overflow-hidden">
+      <AboutBackgroundShapes showShapes={false} />
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
           <RevealOnScroll>

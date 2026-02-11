@@ -4,13 +4,13 @@ import { Mail, ArrowUpRight } from "lucide-react";
 import Button from "./ui/Button";
 import ParallaxElement from "./ui/ParallaxElement";
 
+import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden bg-black w-screen left-1/2 -ml-[50vw]">
       {/* Background accents */}
-      <ParallaxElement offset={30} className="absolute top-0 right-0 w-1/3 h-full pointer-events-none">
-        <div className="w-full h-full bg-gradient-to-l from-primary/5 to-transparent" />
-      </ParallaxElement>
+      <AboutBackgroundShapes />
       
       <div className="container mx-auto px-6 relative z-10">
         <ParallaxElement offset={-20}>
