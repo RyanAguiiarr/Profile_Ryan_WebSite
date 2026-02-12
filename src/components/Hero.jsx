@@ -94,7 +94,7 @@ const Hero = () => {
               </div>
               
               {/* Mobile Layout - Moved Inside for Z-Index */}
-              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[390px] sm:pb-[380px] md:pb-[500px]">
+              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[440px] sm:pb-[440px] md:pb-[550px] min-[800px]:pb-[600px]">
                   <div className="grid grid-cols-2 gap-2 w-full">
                       {/* Left Side */}
                       <motion.div 
@@ -103,8 +103,8 @@ const Hero = () => {
                           transition={{ delay: 0.1 }}
                           className="flex flex-col items-start text-left"
                       >
-                          <span className="font-script text-2xl sm:text-3xl text-orange-500 mb-2 lowercase ml-1">desenvolvedor</span>
-                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
+                          <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase ml-1">desenvolvedor</span>
+                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
                               <span>FULL</span>
                               <span>STACK</span>
                           </h1>
@@ -118,8 +118,8 @@ const Hero = () => {
                           transition={{ delay: 0.1 }}
                           className="flex flex-col items-end text-right"
                       >
-                          <span className="font-script text-2xl sm:text-3xl text-orange-500 mb-2 lowercase mr-1">engenheiro de</span>
-                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
+                          <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase mr-1">engenheiro de</span>
+                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
                               <span>SOFT</span>
                               <span>WARE</span>
                           </h1>

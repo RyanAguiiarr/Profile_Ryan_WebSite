@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import fundoParalax from '../../assets/paralax/paralaxNovo/fundoParalax.png';
-import pessoaParalax from '../../assets/paralax/paralaxNovo/pessoaParalax.png';
+import fundoParalax from '../../assets/paralax/paralaxNovo/fundoParalax.webp';
+import pessoaParalax from '../../assets/paralax/paralaxNovo/pessoaParalax.webp';
 import logoDemo from '../../assets/logoDemo.png';
 
 const ParallaxHeroBackground = ({ children }) => {

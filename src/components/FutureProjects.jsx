@@ -98,7 +98,7 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
   );
 };
 
-import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+
 
 const FutureProjects = () => {
   const container = useRef(null);
@@ -109,7 +109,7 @@ const FutureProjects = () => {
 
   return (
     <section ref={container} id="future-projects" className="relative pt-20 bg-black w-screen left-1/2 -ml-[50vw] overflow-hidden">
-      <AboutBackgroundShapes />
+
       <div className="container mx-auto px-6 mb-[-70px] text-center">
             <ParallaxElement offset={-20}>
                 <RevealOnScroll>
