@@ -11,7 +11,10 @@ const Button = ({ children, href, onClick, className = "", ...props }) => {
       {...props}
     >
       {/* Serpentine Border Effect */}
-      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square bg-[conic-gradient(#c2410c_0%,#c2410c_35%,#0000_50%,#0000_100%)] animate-[spin_3s_linear_infinite] -z-10" />
+      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] bg-[conic-gradient(from_0deg,transparent_0_75%,#ea580c_100%)] animate-[spin_4s_linear_infinite] -z-10" />
+
+      {/* Full Border Glow on Hover */}
+      <span className="absolute inset-0 bg-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
 
       {/* Inner Background to cover the center of the conic gradient */}
       <span className="absolute inset-[2px] rounded-lg bg-black z-0" />

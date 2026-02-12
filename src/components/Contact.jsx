@@ -8,7 +8,7 @@ import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black w-screen left-1/2 -ml-[50vw]">
+    <section id="contact" className="py-[250px] relative overflow-hidden bg-black w-screen left-1/2 -ml-[50vw]">
       {/* Background accents */}
       <AboutBackgroundShapes />
       

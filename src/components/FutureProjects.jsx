@@ -108,9 +108,9 @@ const FutureProjects = () => {
   });
 
   return (
-    <section ref={container} id="future-projects" className="relative pt-20 bg-black w-screen left-1/2 -ml-[50vw] overflow-hidden">
+    <section ref={container} id="future-projects" className="relative pt-20 bg-black w-screen left-1/2 -ml-[50vw]">
 
-      <div className="container mx-auto px-6 mb-[-70px] text-center">
+      <div className="container mx-auto px-6 mb-[-70px] text-center min-[800px]:-translate-y-12">
             <ParallaxElement offset={-20}>
                 <RevealOnScroll>
                     <span className="text-primary font-medium tracking-wider uppercase text-sm">Em Breve</span>

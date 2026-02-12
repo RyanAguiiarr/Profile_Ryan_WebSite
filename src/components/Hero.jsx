@@ -29,14 +29,14 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [10, 200]); // Content moves up slightly (faster separation)
 
   return (
-    <section id="home" className="relative min-h-[140vh] max-[800px]:min-h-[100vh] flex flex-col justify-start pt-16 md:pt-48 pb-10 lg:pb-64">
+    <section id="home" className="relative min-h-[140vh] max-[800px]:min-h-[900px] max-[1023px]:min-h-[1000px] flex flex-col justify-start pt-16 md:pt-48 pb-10 lg:pb-64">
       {/* Video Background - Full Screen Breakout */}
       {/* Parallax Background */}
       {/* Parallax Background - Full Screen Breakout */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full z-0 overflow-hidden">
         <ParallaxHeroBackground>
              {/* Desktop Layout - Injected as Children */}
-              <div className="hidden lg:grid container mx-auto px-6 relative h-full lg:pt-[390px] xl:pt-[360px] min-[1535px]:pt-[350px] grid-cols-2 gap-20 items-start">
+              <div className="hidden lg:grid container mx-auto px-6 relative h-full lg:pt-[max(41vh,250px)] xl:pt-[max(40vh,250px)] min-[1535px]:pt-[max(39vh,250px)] grid-cols-2 gap-20 items-start">
                 
                 {/* Left Content - Full Stack */}
                 <div className="flex flex-col items-start text-left">
@@ -45,7 +45,7 @@ const Hero = () => {
                         <RevealOnScroll delay={0.2}>
                             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-start py-0">
                                 <span className="font-script text-4xl md:text-5xl lg:text-6xl xl:text-5xl text-orange-500 ml-2 mb-20 lg:mb-10 xl:mb-20 z-20 relative lowercase">desenvolvedor</span>
-                                <span className="font-bebas text-[5.5rem] md:text-[7rem] lg:text-[7rem] xl:text-[10rem] min-[1535px]:text-[13rem] tracking-tight text-white leading-none z-10 relative scale-y-150 origin-bottom pb-0">
+                                <span className="font-bebas text-[5.5rem] md:text-[7rem] lg:text-[7rem] xl:text-[10rem] min-[1535px]:text-[13rem] tracking-tight text-white/80 leading-none z-10 relative scale-y-150 origin-bottom pb-0">
                                     FULL STACK
                                 </span>
                             </h1>
@@ -72,7 +72,7 @@ const Hero = () => {
                         <RevealOnScroll delay={0.3}>
                             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-end py-0">
                                 <span className="font-script text-4xl md:text-5xl lg:text-6xl xl:text-5xl text-orange-500 mr-4 mb-20 lg:mb-10 xl:mb-20 z-20 relative lowercase">engenheiro de</span>
-                                <span className="font-bebas text-[5.5rem] md:text-[7rem] lg:text-[7rem] xl:text-[10rem] min-[1535px]:text-[13rem] tracking-tight text-white leading-none z-10 relative scale-y-150 origin-bottom pb-0">
+                                <span className="font-bebas text-[5.5rem] md:text-[7rem] lg:text-[7rem] xl:text-[10rem] min-[1535px]:text-[13rem] tracking-tight text-white/80 leading-none z-10 relative scale-y-150 origin-bottom pb-0">
                                     SOFTWARE
                                 </span>
                             </h1>
@@ -94,7 +94,7 @@ const Hero = () => {
               </div>
               
               {/* Mobile Layout - Moved Inside for Z-Index */}
-              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[440px] sm:pb-[440px] md:pb-[550px] min-[800px]:pb-[600px]">
+              <div className="lg:hidden container mx-auto px-4 relative z-10 flex flex-col justify-end h-full pb-[400px] sm:pb-[400px] md:pb-[400px] min-[400px]:pb-[400px]">
                   <div className="grid grid-cols-2 gap-2 w-full">
                       {/* Left Side */}
                       <motion.div 
@@ -104,7 +104,7 @@ const Hero = () => {
                           className="flex flex-col items-start text-left"
                       >
                           <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase ml-1">desenvolvedor</span>
-                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
+                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white/80 leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
                               <span>FULL</span>
                               <span>STACK</span>
                           </h1>
@@ -119,7 +119,7 @@ const Hero = () => {
                           className="flex flex-col items-end text-right"
                       >
                           <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase mr-1">engenheiro de</span>
-                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
+                          <h1 className="font-bebas text-[5.5rem] sm:text-[8rem] min-[800px]:text-[9.5rem] tracking-tighter text-white/80 leading-[0.8] flex flex-col mb-20 scale-y-125 origin-top">
                               <span>SOFT</span>
                               <span>WARE</span>
                           </h1>

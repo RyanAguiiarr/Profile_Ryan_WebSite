@@ -79,7 +79,7 @@ const TechStack3D = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[60vh] md:min-h-[150vh] -mt-12 md:mt-0 flex items-center justify-center overflow-hidden py-0 md:py-32 perspective-1000 bg-black w-screen left-1/2 -ml-[50vw]"
+      className="relative min-h-[100vh] md:min-h-[150vh] -mt-12 md:mt-0 flex items-center justify-center overflow-hidden py-0 md:py-32 perspective-1000 bg-black w-screen left-1/2 -ml-[50vw]"
       style={{ perspective: "1000px" }}
     >
         {/* Background Shapes */}
@@ -186,6 +186,9 @@ const TechStack3D = () => {
 
         {/* Enhanced Bottom Vignette to match top intensity */}
         <div className="absolute bottom-0 left-0 w-full h-[400px] bg-gradient-to-t from-black via-black/10 to-transparent z-10 pointer-events-none" />
+
+        {/* Mobile Top Vignette - Restored for "Black Light" effect */}
+        <div className="absolute top-0 left-0 w-full h-[250px] bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none lg:hidden" />
     </section>
   );
 };
