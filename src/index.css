@@ -1,5 +1,44 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;500;600;700&display=swap');
+/* Local Fonts Implementation */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/bebas-neue-v16-latin/bebas-neue-v16-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/dancing-script-v29-latin/dancing-script-v29-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/dancing-script-v29-latin/dancing-script-v29-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/dancing-script-v29-latin/dancing-script-v29-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/dancing-script-v29-latin/dancing-script-v29-latin-700.woff2') format('woff2');
+}
 
 @tailwind base;
 @tailwind components;

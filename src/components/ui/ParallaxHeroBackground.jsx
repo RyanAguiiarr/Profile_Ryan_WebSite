@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import fundoParalax from '../../assets/paralax/paralaxNovo/fundoParalax.webp';
 import pessoaParalax from '../../assets/paralax/paralaxNovo/pessoaParalax.webp';
 import logoDemo from '../../assets/logoDemo.png';
+import logoDemoMobile from '../../assets/logoDemo-mobile.webp';
 
 const ParallaxHeroBackground = ({ children }) => {
     const ref = useRef(null);
@@ -13,30 +14,9 @@ const ParallaxHeroBackground = ({ children }) => {
 
     // Parallax movement values
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-    const personY = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]); // Person moves slightly slower than bg to create depth? No, usually foreground moves faster.
-    // Let's rethink standard parallax:
-    // Background (farthest): moves slowest (or barely)
-    // Middle (Person): moves faster than background
-    // Front (Logo): moves fastest
+    const personY = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]); 
 
-    // However, if we want them to "separate" as we scroll down:
-    const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]); // Farthest - moves some amount
-    const personYVal = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]); // Mid - Centered, moves a bit less? 
-    // Actually, usually things further away move slower.
-    // So Bg = slow. Person = medium. Logo = fast.
-    
-    // But since this is a hero background, we want the effect of the user scrolling *past* these items.
-    // If we want a "deep" feel:
-    const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const yPerson = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]); // Person stays more 'fixed' relative to viewport? 
-    // Let's stick to standard: background moves slower than foreground.
-    
-    const yBack = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const yMid = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-    const yFront = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]); // Logo moves up/away faster?
-
-    // Simpler approach for a "Hero" that scrolls away:
-    // We want them to stay fixed for a bit or move at different rates.
+    // Hero scrolling logic
     const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
     const yPersonLayer = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
     const yLogo = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
@@ -51,17 +31,14 @@ const ParallaxHeroBackground = ({ children }) => {
                 <img 
                     src={fundoParalax} 
                     alt="Background" 
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-60" 
                 />
             </motion.div>
 
             {/* Layer 1.5: Content (Behind Person) */}
             <div className="absolute inset-0 w-full h-full z-10 pointer-events-none">
-                 {/* 
-                    Wrapper must be pointer-events-auto for buttons if they are not covered by person.
-                    Actually, if Person is z-20, it will block clicks on text if it overlaps.
-                    The text is "behind" the person visually. Use z-10 for content, z-20 for person.
-                 */}
                  <div className="w-full h-full pointer-events-auto">
                     {children}
                  </div>
@@ -75,6 +52,8 @@ const ParallaxHeroBackground = ({ children }) => {
                 <img 
                     src={pessoaParalax} 
                     alt="Ryan" 
+                    fetchPriority="high"
+                    decoding="async"
                     className="h-[90%] max-[800px]:h-[85%] max-[800px]:mb-0 w-auto object-contain object-bottom max-[800px]:object-center" 
                 />
             </motion.div>
@@ -84,11 +63,16 @@ const ParallaxHeroBackground = ({ children }) => {
                 style={{ y: yLogo }}
                 className="absolute inset-0 w-full h-full z-30 flex items-center justify-center pt-20 pointer-events-none"
             >
-                <img 
-                    src={logoDemo} 
-                    alt="Logo" 
-                    className="w-[300px] md:w-[500px] object-contain drop-shadow-2xl opacity-0" // Hiding logic based on user request? No, keep it. Wait, user didn't say remove logo.
-                />
+                <picture className="w-[300px] md:w-[500px] drop-shadow-2xl opacity-0">
+                    <source media="(max-width: 768px)" srcSet={logoDemoMobile} />
+                    <img 
+                        src={logoDemo} 
+                        alt="Logo" 
+                        fetchPriority="high"
+                        decoding="async"
+                        className="w-full h-full object-contain" 
+                    />
+                </picture>
             </motion.div>
             
             {/* Mobile Bottom Mask Gradient to hide body cutoff */}

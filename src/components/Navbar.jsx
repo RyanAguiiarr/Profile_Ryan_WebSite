@@ -35,7 +35,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
       className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
       <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
-        <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
+        <a href="#home" aria-label="Ir para o início" onClick={(e) => scrollTo(e, "#home")} className="block w-48 md:w-72 hover:opacity-80 transition-opacity">
           <picture>
             <source media="(max-width: 768px)" srcSet={logoVideoMobile} />
             <img 
@@ -122,7 +122,7 @@ const FloatingNav = ({ navLinks }) => {
         className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/90 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
     >
         {/* Profile / Home Icon */}
-        <a href="#home" onClick={(e) => scrollTo(e, "#home")} className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
+        <a href="#home" aria-label="Ir para o início" onClick={(e) => scrollTo(e, "#home")} className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">
              <img 
                 src={profileImg} 
                 alt="Home" 
