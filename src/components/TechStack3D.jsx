@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
+import { isIOS } from "../utils/ios-utils";
 import { Box } from "lucide-react"; // Keep Box for static center icon if needed, or replace it too. keeping for safety or replacing with a logo?
 import InfiniteMarquee from "./InfiniteMarquee";
 
@@ -225,7 +226,7 @@ const FloatingCard = ({ tech }) => {
                 ease: "easeInOut"
             }}
         >
-            <div className={`${sizeClasses[tech.size]} relative rounded-2xl bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/15 shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
+            <div className={`${sizeClasses[tech.size]} relative rounded-2xl bg-[#0a0a0a]/90 ${isIOS() ? 'backdrop-blur-sm' : 'backdrop-blur-xl'} border border-white/15 shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
                 
                 {/* Top Orange Glow Effect */}
                 <div className="absolute top-[-25%] left-[-20%] right-[-20%] h-[60%] bg-orange-500/40 blur-[30px] rounded-full pointer-events-none mix-blend-screen" />

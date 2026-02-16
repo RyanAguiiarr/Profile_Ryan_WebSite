@@ -9,6 +9,8 @@ const RevealOnScroll = ({ children, delay = 0, duration = 0.5, className = "" })
           whileInView={{ y: 0 }}
           viewport={{ once: false, margin: "-10%" }} // trigger every time
           transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }} // Custom cubic-bezier for "cinematic" smooth stop
+          className="will-change-transform"
+          style={{ transform: "translateZ(0)" }}
         >
           {children}
         </motion.div>

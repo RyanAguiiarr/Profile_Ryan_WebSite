@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Lenis from "lenis";
+import { isIOS } from "../../utils/ios-utils";
 
 export const LenisContext = React.createContext();
 
@@ -7,14 +8,16 @@ const SmoothScroll = ({ children }) => {
   const [lenis, setLenis] = React.useState(null);
 
   useEffect(() => {
+    const isIOSDevice = isIOS();
+    
     const lenisInstance = new Lenis({
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for "creamy" feel
+      duration: isIOSDevice ? 1.0 : 1.5, // Faster/native-like on iOS
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
-      smooth: true,
+      smooth: !isIOSDevice, // Disable heavy smoothing on iOS if it causes issues, or keep enabled but lighter
       mouseMultiplier: 1,
-      smoothTouch: false,
+      smoothTouch: false, // Always false for touch devices usually better
       touchMultiplier: 2,
     });
 

@@ -90,7 +90,7 @@ const ThreeDCarousel = () => {
             style={{ perspective: `${config.perspective}px` }}
         >
             <motion.div
-          className="relative w-0 h-0"
+          className="relative w-0 h-0 will-change-transform"
           style={{ transformStyle: "preserve-3d" }}
           animate={{ rotateY: 180 }} // Inverted rotation direction to match "natural" flow with concave
           transition={{

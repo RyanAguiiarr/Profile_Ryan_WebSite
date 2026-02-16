@@ -41,7 +41,7 @@ const Hero = () => {
                 {/* Left Content - Full Stack */}
                 <div className="flex flex-col items-start text-left">
                     {/* Headline Left */}
-                    <motion.div style={{ y: y1 }} className="relative z-10 w-full">
+                    <motion.div style={{ y: y1 }} className="relative z-10 w-full will-change-transform">
                         <RevealOnScroll delay={0.2}>
                             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-start py-0">
                                 <span className="font-script text-4xl md:text-5xl lg:text-6xl xl:text-5xl text-orange-500 ml-2 mb-20 lg:mb-10 xl:mb-20 z-20 relative lowercase">desenvolvedor</span>
@@ -53,7 +53,7 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Subtext & Buttons */}
-                    <motion.div style={{ y: y1 }} className="max-w-md ml-0 mt-[-40px]">
+                    <motion.div style={{ y: y1 }} className="max-w-md ml-0 mt-[-40px] will-change-transform">
                          <RevealOnScroll delay={0.4}>
                             <p className="text-lg text-gray-400 leading-relaxed mb-8 font-light">
                                 Especialista em construir aplicações escaláveis e de alta performance. 
@@ -68,7 +68,7 @@ const Hero = () => {
                 {/* Right Content - Software Engineer */}
                 <div className="flex flex-col items-end text-right"> 
                      {/* Headline Right */}
-                    <motion.div style={{ y: y1 }} className="relative z-10 w-full">
+                    <motion.div style={{ y: y1 }} className="relative z-10 w-full will-change-transform">
                         <RevealOnScroll delay={0.3}>
                             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none mb-2 flex flex-col items-end py-0">
                                 <span className="font-script text-4xl md:text-5xl lg:text-6xl xl:text-5xl text-orange-500 mr-4 mb-20 lg:mb-10 xl:mb-20 z-20 relative lowercase">engenheiro de</span>
@@ -79,7 +79,7 @@ const Hero = () => {
                         </RevealOnScroll>
                     </motion.div>
 
-                     <motion.div style={{ y: y1 }} className="max-w-md mr-0 mt-[-40px]">
+                     <motion.div style={{ y: y1 }} className="max-w-md mr-0 mt-[-40px] will-change-transform">
                          <RevealOnScroll delay={0.5}>
                             <p className="text-lg text-gray-400 leading-relaxed mb-8 font-light">
                                 Mesclando a robustez do Java/Spring com a agilidade do React.

@@ -46,7 +46,7 @@ const ParallaxHeroBackground = ({ children }) => {
             {/* Layer 1: Background */}
             <motion.div 
                 style={{ y: yBackground }}
-                className="absolute inset-0 w-full h-full z-0"
+                className="absolute inset-0 w-full h-full z-0 will-change-transform"
             >
                 <img 
                     src={fundoParalax} 
@@ -70,7 +70,7 @@ const ParallaxHeroBackground = ({ children }) => {
             {/* Layer 2: Person (Middle) */}
             <motion.div 
                 style={{ y: yPersonLayer }}
-                className="absolute inset-0 w-full h-full z-20 flex items-end max-[800px]:items-center justify-center pointer-events-none"
+                className="absolute inset-0 w-full h-full z-20 flex items-end max-[800px]:items-center justify-center pointer-events-none will-change-transform"
             >
                 <img 
                     src={pessoaParalax} 
@@ -82,7 +82,7 @@ const ParallaxHeroBackground = ({ children }) => {
             {/* Layer 3: Logo (Front) */}
             <motion.div 
                 style={{ y: yLogo }}
-                className="absolute inset-0 w-full h-full z-30 flex items-center justify-center pt-20 pointer-events-none"
+                className="absolute inset-0 w-full h-full z-30 flex items-center justify-center pt-20 pointer-events-none will-change-transform"
             >
                 <img 
                     src={logoDemo} 
