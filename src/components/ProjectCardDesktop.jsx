@@ -21,22 +21,22 @@ const ProjectCardDesktop = ({ project, isActive }) => {
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 w-full max-w-[90vw] 2xl:max-w-7xl mx-auto px-4">
       {/* Content Side - Left */}
       <motion.div 
-        className="w-full md:w-auto max-w-xl space-y-4 md:space-y-6 lg:space-y-8 text-left min-w-[300px]"
+        className="w-full md:w-auto max-w-xl space-y-6 md:space-y-8 lg:space-y-10 text-left min-w-[300px]"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <div className="flex items-center gap-3">
-            <span className="px-3 py-1 text-[10px] md:text-xs font-bold tracking-wider text-white bg-white/10 rounded-full backdrop-blur-md uppercase border border-white/10">
-                Featured Project
+            <span className="px-4 py-1.5 text-xs md:text-sm font-bold tracking-widest text-white bg-white/5 rounded-lg backdrop-blur-md uppercase border border-white/10 shadow-lg">
+                Projeto em Destaque
             </span>
         </div>
 
-        <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
+        <h3 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[0.9] tracking-tight">
           {project.title}
         </h3>
         
-        <p className="text-base md:text-lg text-gray-300 max-w-md leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-200 max-w-lg leading-relaxed font-light">
           {project.description}
         </p>
 
@@ -49,17 +49,38 @@ const ProjectCardDesktop = ({ project, isActive }) => {
         <div className="flex gap-4 pt-2">
             <a 
                 href={project.demo} 
-                className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-3 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors text-sm md:text-base"
+                className="relative group inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--project-color)]"
+                style={{ 
+                    "--project-color": project.color,
+                    boxShadow: "0 0 0 1px var(--project-color)" 
+                }}
                 aria-label="View Live Demo"
             >
-                View Project <ArrowRight size={18} />
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] animate-[spin_4s_linear_infinite] -z-10" 
+                      style={{ background: `conic-gradient(from 0deg, transparent 0 75%, var(--project-color) 100%)` }} 
+                />
+                <span className="absolute inset-[2px] rounded-lg bg-black z-0" />
+                <span className="relative z-10 flex items-center gap-2">
+                    Ver Projeto <ArrowRight size={18} />
+                </span>
             </a>
+
             <a 
                 href={project.github} 
-                className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-3 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 backdrop-blur-md transition-colors border border-white/10 text-sm md:text-base"
+                className="relative group inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--project-color)]"
+                 style={{ 
+                    "--project-color": project.color,
+                    boxShadow: "0 0 0 1px var(--project-color)"
+                }}
                 aria-label="View Code on GitHub"
             >
-                <Github size={18} /> Code
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] animate-[spin_4s_linear_infinite] -z-10" 
+                      style={{ background: `conic-gradient(from 0deg, transparent 0 75%, var(--project-color) 100%)` }} 
+                />
+                 <span className="absolute inset-[2px] rounded-lg bg-black z-0" />
+                <span className="relative z-10 flex items-center gap-2">
+                    <Github size={18} /> Código
+                </span>
             </a>
         </div>
       </motion.div>
@@ -112,7 +133,7 @@ const ProjectCardDesktop = ({ project, isActive }) => {
                 
                 {/* Overlay details */}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent z-20">
-                     <span className="text-white/80 text-xs font-mono tracking-widest">0{project.id} — EXPLORE</span>
+                     <span className="text-white/80 text-xs font-mono tracking-widest">0{project.id} — EXPLORAR</span>
                 </div>
             </div>
         </div>

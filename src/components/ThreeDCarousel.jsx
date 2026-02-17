@@ -76,7 +76,7 @@ const ThreeDCarousel = () => {
   return (
     // Increased scale to ensure cards aren't cut off and fill the field
     // Added breakout styles: w-screen and negative margins to escape the max-w-[1600px] parent
-    <section className="relative h-[500px] md:h-[800px] -mb-32 md:mb-0 w-screen left-1/2 -ml-[50vw] overflow-hidden flex flex-col items-center justify-center bg-black mb-[0px]">
+    <section className="relative h-[400px] md:h-[700px] -mt-20 -mb-40 md:-mb-20 w-screen left-1/2 -ml-[50vw] overflow-hidden flex flex-col items-center justify-center bg-black">
       <AboutBackgroundShapes showShapes={false} />
 
       {/* Adjusted Masks - thinner to maximize visible area */}

@@ -46,41 +46,61 @@ import startEdu9 from "../assets/Projects/startEdu/Captura de tela 2025-08-02 09
 const projects = [
   {
     id: 1,
-    title: "Design SaaS Platform",
-    description: "A modern SaaS platform for design collaboration, featuring real-time editing and project management tools.",
+    title: "Design & Social Media SaaS",
+    description: "Aplicação SaaS voltada para a criação e gestão de design e conteúdo para redes sociais. Arquitetura escalável com Front-End em React Native para mobilidade e Back-End robusto em Java Spring Boot.",
     images: [designSaas1, designSaas2, designSaas3, designSaas4, designSaas5, designSaas6, designSaas7, designSaas8, designSaas9, designSaas10],
-    tags: ["React", "Tailwind", "Framer Motion", "SaaS"],
-    color: "#8b5cf6", // Violet
+    tags: ["React Native", "Spring Boot", "SaaS", "Mobile"],
+    color: "#6366F1", // Azul Lavanda
+    colors: {
+      bg: "#1A1C26",
+      highlight1: "#6366F1",
+      highlight2: "#252836"
+    },
     github: "#",
     demo: "#"
   },
   {
     id: 2,
-    title: "Dieta.IA",
-    description: "AI-powered nutrition assistant that generates personalized diet plans based on user preferences and goals.",
+    title: "MedGen AI",
+    description: "Solução SaaS voltada para a área da saúde que utiliza Inteligência Artificial para a geração automatizada de relatórios e laudos médicos. Foco em segurança de dados e precisão técnica via Engenharia de Prompt e LLMs.",
     images: [dietaAi1, dietaAi2, dietaAi3, dietaAi4, dietaAi5],
-    tags: ["AI", "React", "Node.js", "OpenAI"],
-    color: "#10b981", // Emerald
+    tags: ["AI", "LLMs", "Engenharia de Prompt", "SaaS Saúde"],
+    color: "#82C91E", // Verde Limão
+    colors: {
+        bg: "#01161E",
+        highlight1: "#82C91E",
+        highlight2: "#00A5E3"
+    },
     github: "#",
     demo: "#"
   },
   {
     id: 3,
-    title: "SEMAC IFSP",
-    description: "Official event website for the Academic Week of Computing at IFSP, featuring schedule management and registration.",
+    title: "XI SEMAC - IFSP",
+    description: "Sistema oficial de inscrições e gestão da XI Semana da Computação do IFSP - Campus Catanduva. Aplicação web completa desenvolvida com React e Spring Boot, oferecendo simplicidade e estabilidade para alunos e convidados.",
     images: [semac1, semac2, semac3, semac4, semac5, semac6],
-    tags: ["Event", "Web", "JavaScript", "CSS"],
-    color: "#ef4444", // Red
+    tags: ["React", "Spring Boot", "TailwindCSS", "PostgreSQL"],
+    color: "#FF007A", // Rosa Neon
+    colors: {
+        bg: "#0D0D0D",
+        highlight1: "#FF007A",
+        highlight2: "#2E31FF"
+    },
     github: "#",
     demo: "#"
   },
   {
     id: 4,
     title: "StartEdu",
-    description: "An educational platform connecting students and teachers with interactive learning resources.",
+    description: "Plataforma Full Stack completa para acomodações estudantis. Desenvolvida com Java Spring Boot no BackEnd e React no Front-End, com assistente de IA via FastAPI, autenticação JWT e upload de imagens.",
     images: [startEdu1, startEdu2, startEdu3, startEdu4, startEdu5, startEdu6, startEdu7, startEdu8, startEdu9],
-    tags: ["Education", "Platform", "React", "Firebase"],
-    color: "#3b82f6", // Blue
+    tags: ["Java Spring Boot", "React", "FastAPI", "JWT"],
+    color: "#FF6D33", // Laranja
+    colors: {
+        bg: "#120B1E",
+        highlight1: "#FF6D33",
+        highlight2: "#6C3EE8"
+    },
     github: "#",
     demo: "#"
   }
@@ -100,30 +120,31 @@ const Projects = () => {
   const currentProject = projects[currentIndex];
 
   return (
-    <section id="projects" className="py-8 md:py-24 relative w-screen left-1/2 -ml-[50vw] overflow-hidden transition-colors duration-1000"
-      style={{ backgroundColor: currentProject.color ? `${currentProject.color}15` : '#000' }} // 10% opacity of theme color
+    <section id="projects" className="pt-32 pb-8 md:py-24 relative w-screen left-1/2 -ml-[50vw] overflow-hidden transition-colors duration-1000"
+      style={{ backgroundColor: currentProject.colors?.bg || '#000' }} 
     >
         {/* Dynamic Background Gradient Blob */}
         <div 
-            className="absolute inset-0 blur-[150px] opacity-30 pointer-events-none transition-colors duration-1000"
+            className="absolute inset-0 blur-[150px] opacity-40 pointer-events-none transition-colors duration-1000"
             style={{ 
-                background: `radial-gradient(circle at 50% 50%, ${currentProject.color || '#3b82f6'}, transparent 70%)` 
+                background: `radial-gradient(circle at 60% 40%, ${currentProject.colors?.highlight1 || currentProject.color}, transparent 60%),
+                             radial-gradient(circle at 40% 60%, ${currentProject.colors?.highlight2 || currentProject.color}, transparent 60%)`
             }}
         />
 
-        {/* Top Vignette */}
-        <div className="absolute top-0 left-0 right-0 h-32 md:h-64 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none" />
+        {/* Top Vignette - Restored for "Black Light" effect */}
+        <div className="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-black via-black/85 to-transparent z-20 pointer-events-none" />
         {/* Bottom Vignette */}
         <div className="absolute bottom-0 left-0 right-0 h-32 md:h-64 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-12 text-center">
-          <RevealOnScroll>
-            <span className="text-white/70 font-medium tracking-wider uppercase text-sm border border-white/10 px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm">
-                Portfolio
-            </span>
-            <h2 className="text-4xl md:text-6xl font-bold mt-4 text-white">Selected Works</h2>
-          </RevealOnScroll>
+      <div className="container mx-auto px-4 relative z-30">
+        <div className="mb-8 md:mb-32 text-center relative z-30">
+            <div>
+              <span className="text-white font-bold tracking-widest uppercase text-sm border border-white/30 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md shadow-lg">
+                  Projetos
+              </span>
+              <h2 className="text-5xl md:text-7xl font-black mt-6 text-white drop-shadow-xl tracking-tight">Meus Projetos</h2>
+            </div>
         </div>
 
         {/* DESKTOP VIEW */}
@@ -177,12 +198,12 @@ const Projects = () => {
         </div>
 
         {/* MOBILE VIEW (Carousel) */}
-        <div className="md:hidden relative h-[650px] flex items-center justify-center overflow-visible">
+        <div className="md:hidden relative h-[680px] flex items-center justify-center overflow-visible">
             {/* 
                We render 3 cards efficiently or just map all but position them absolutely.
                For a true carousel feeling, we'll map all but control their styles.
             */}
-             <div className="relative w-full h-[650px] flex items-center justify-center [perspective:1000px]">
+             <div className="relative w-full h-[680px] flex items-center justify-center [perspective:1000px]">
                 {projects.map((project, index) => {
                     // Logic to determine relative position
                     // We need a circular logic for handling the "infinite" feel locally if we want, 
@@ -206,7 +227,7 @@ const Projects = () => {
                     return (
                         <motion.div
                             key={project.id}
-                            className="absolute w-[100%] max-w-[400px]"
+                            className="absolute w-[90%] max-w-[400px]"
                             initial={false}
                             animate={{
                                 x: offset * 105 + "%", // Spacing

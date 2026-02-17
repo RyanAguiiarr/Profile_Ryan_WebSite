@@ -51,17 +51,19 @@ function App() {
                 </SectionDimmer>
             </Suspense>
 
+             <Suspense fallback={<div className="h-screen" />}>
+                <SectionDimmer>
+                    <Projects />
+                </SectionDimmer>
+            </Suspense>
+
             <Suspense fallback={<div className="h-[800px]" />}>
                 <SectionDimmer>
                     <TechStack3D />
                 </SectionDimmer>
             </Suspense>
 
-            <Suspense fallback={<div className="h-screen" />}>
-                <SectionDimmer>
-                    <Projects />
-                </SectionDimmer>
-            </Suspense>
+           
 
             <Suspense fallback={<div className="h-screen" />}>
                 <SectionDimmer>

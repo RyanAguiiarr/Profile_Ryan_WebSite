@@ -9,29 +9,29 @@ import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
 // Tech stack data with official logos
 // Size: 'sm' | 'md' | 'lg'
 const techStack = [
-  // Large items (Center/Inner core)
-  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", x: -350, y: -150, z: 100, size: "lg" },
-  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", x: 350, y: -150, z: 100, size: "lg" },
-  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", x: -300, y: 220, z: 100, size: "lg" },
-  { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", x: 300, y: 220, z: 100, size: "lg" },
+  // Large items (Center/Inner core) - Main Skills
+  { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", x: -350, y: -150, z: 100, size: "lg" },
+  { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", x: 350, y: -150, z: 100, size: "lg" },
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", x: -300, y: 220, z: 100, size: "lg" },
+  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", x: 300, y: 220, z: 100, size: "lg" }, // Use wordmark for recognition or plain if too wide
   
-  // Medium items (Mid circle - Widened)
-  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", x: 0, y: -320, z: 50, size: "md" },
-  { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg", x: 0, y: 320, z: 50, size: "md" },
-  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", x: -500, y: 0, z: 60, size: "md" },
-  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", x: 500, y: 0, z: 60, size: "md" },
-  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", x: -400, y: -250, z: 40, size: "md" }, // NEW
-  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", x: 400, y: -250, z: 40, size: "md" }, // NEW
+  // Medium items (Mid circle - Widened) - Important Skills
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", x: 0, y: -320, z: 50, size: "md" },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", x: 0, y: 320, z: 50, size: "md" },
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", x: -500, y: 0, z: 60, size: "md" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", x: 500, y: 0, z: 60, size: "md" },
+  { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg", x: -400, y: -250, z: 40, size: "md" },
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", x: 400, y: -250, z: 40, size: "md" },
 
-  // Small items (Outer circle - Widened)
-  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", x: -600, y: -180, z: 20, size: "sm" },
-  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", x: 600, y: -180, z: 20, size: "sm" },
-  { name: "Bash", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg", x: -600, y: 180, z: 20, size: "sm" },
-  { name: "Postman", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", x: 600, y: 180, z: 20, size: "sm" },
-  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", x: -250, y: -450, z: 10, size: "sm" }, // NEW
-  { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", x: 250, y: -450, z: 10, size: "sm" }, // NEW
-  { name: "Spring", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", x: -250, y: 450, z: 10, size: "sm" }, // NEW
-  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", x: 250, y: 450, z: 10, size: "sm" }, // NEW
+  // Small items (Outer circle - Widened) - Supporting Skills
+  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", x: -600, y: -180, z: 20, size: "sm" }, // For AI/FastAPI context
+  { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", x: 600, y: -180, z: 20, size: "sm" },
+  { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", x: -600, y: 180, z: 20, size: "sm" },
+  { name: "Kafka", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", x: 600, y: 180, z: 20, size: "sm" },
+  { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", x: -250, y: -450, z: 10, size: "sm" },
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", x: 250, y: -450, z: 10, size: "sm" },
+  { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg", x: -250, y: 450, z: 10, size: "sm" },
+  { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg", x: 250, y: 450, z: 10, size: "sm" }, // Using Wikimedia for OpenAI logo as devicon might not have it or it might be new
 ];
 
 const TechStack3D = () => {
@@ -94,11 +94,11 @@ const TechStack3D = () => {
              {/* Badge & Title - Compacted */}
              <motion.div style={{ y: yContent }} className="mb-2 relative z-20">
                 <div className="px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md inline-block">
-                    Full Stack Arsenal
+                    Arsenal Full Stack
                 </div>
              </motion.div>
 
-             <motion.div style={{ y: yContent }} className="mb-10 relative z-20">
+             <motion.div style={{ y: yContent }} className="mb-32 relative z-20">
                 <h2 className="text-3xl font-bold text-center text-white leading-[1.1] px-4">
                     Integração <br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
@@ -108,15 +108,16 @@ const TechStack3D = () => {
              </motion.div>
 
              {/* 3D Tilted/Curved Rows Container - Optimized for Mobile Performance */}
+             {/* 3D Tilted/Curved Rows Container - Optimized for Mobile Performance */}
              <div 
-                className="relative w-[150%] left-[-25%] h-[500px] flex flex-col justify-center gap-6 perspective-[1000px] overflow-hidden"
+                className="relative w-[200%] left-[-50%] h-[500px] flex flex-col justify-center gap-6 perspective-[1000px] overflow-visible"
             >
                  {/* The Wall - Rotated and Tilted */}
-                 <div className="flex flex-col gap-5 transform rotate-[-5deg] rotate-x-[10deg] scale-110 origin-center will-change-transform">
+                 <div className="flex flex-col gap-5 transform rotate-[-5deg] rotate-x-[10deg] scale-110 origin-center will-change-transform w-full">
                      
                      {/* Row 1 */}
-                     <div className="transform translate-x-[-10%] opacity-90">
-                         <InfiniteMarquee speed={25} items={techStack.slice(0, 8).map((tech, i) => (
+                     <div className="w-full opacity-90">
+                         <InfiniteMarquee speed={25} showGradient={false} items={techStack.slice(0, 8).map((tech, i) => (
                              <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center p-4 group">
                                  <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
@@ -124,8 +125,8 @@ const TechStack3D = () => {
                      </div>
 
                      {/* Row 2 - Reverse */}
-                     <div className="transform translate-x-[5%] scale-105 z-10 my-[-10px]">
-                         <InfiniteMarquee speed={30} reverse items={techStack.slice(8, 16).map((tech, i) => (
+                     <div className="w-full scale-105 z-10 my-[-10px]">
+                         <InfiniteMarquee speed={30} reverse showGradient={false} items={techStack.slice(8, 16).map((tech, i) => (
                              <div key={i} className="w-36 h-28 rounded-2xl bg-[#0a0a0a] border border-orange-500/30 flex items-center justify-center p-5 group">
                                  <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
@@ -133,8 +134,8 @@ const TechStack3D = () => {
                      </div>
 
                      {/* Row 3 */}
-                     <div className="transform translate-x-[-15%] opacity-90">
-                         <InfiniteMarquee speed={25} items={[...techStack.slice(16), ...techStack.slice(0, 4)].map((tech, i) => ( // Wrap around logic for fullness
+                     <div className="w-full opacity-90">
+                         <InfiniteMarquee speed={25} showGradient={false} items={[...techStack.slice(16), ...techStack.slice(0, 6)].map((tech, i) => ( // Expanded wrap for fullness
                              <div key={i} className="w-32 h-24 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center p-4 group">
                                  <img src={tech.logo} alt={tech.name} loading="lazy" className="w-full h-full object-contain group-hover:scale-110 transition-transform" style={tech.name === "Next.js" ? { filter: "invert(1)" } : {}} />
                              </div>
@@ -155,14 +156,12 @@ const TechStack3D = () => {
             <motion.div style={{ y: yContent }} className="relative z-10 text-center pointer-events-none p-12">
         
                 <h2 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter text-white">
-                    Mes Domínios <br/>
+                    Meus Domínios <br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
                         Tecnológicos
                     </span>
                 </h2>
-                <p className="text-gray-400 text-lg max-w-md mx-auto">
-                    As ferramentas que criam o futuro digital.
-                </p>
+            
             </motion.div>
 
             {/* 3D ROTATING CONTAINER (ABSOLUTE OVERLAY) */}
@@ -189,7 +188,7 @@ const TechStack3D = () => {
         <div className="absolute bottom-0 left-0 w-full h-[400px] bg-gradient-to-t from-black via-black/10 to-transparent z-10 pointer-events-none" />
 
         {/* Mobile Top Vignette - Restored for "Black Light" effect */}
-        <div className="absolute top-0 left-0 w-full h-[250px] bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none lg:hidden" />
+        <div className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-b from-black via-black/85 to-transparent z-1 pointer-events-none" />
     </section>
   );
 };

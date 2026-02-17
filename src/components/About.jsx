@@ -142,7 +142,7 @@ const About = () => {
 
          </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-[400px] bg-gradient-to-t from-black via-black/10 to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-[400px] bg-gradient-to-t from-black via-black/50 to-transparent z-1 pointer-events-none" />
     </section>
   );
 };

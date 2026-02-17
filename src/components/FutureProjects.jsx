@@ -10,30 +10,30 @@ import img4 from '../assets/futureProjects/medgen2futureproject.png';
 
 const projects = [
   {
-    title: "Summer Vibes Festival Campaign",
-    category: "Graphic Design",
-    description: "Created promotional materials for the \"Summer Vibes Festival,\" including posters, flyers, and social media graphics.",
+    title: "IA Nexus (NexusAI)",
+    category: "Micro SaaS de Marketing",
+    description: "Plataforma full-stack para gestão de conteúdo multicanal, focada na economia dos criadores. Geração de artes e copy via IA integrada.",
     image: img1, 
     color: "#2a2a2a" // fallback color
   },
   {
-    title: "Coral Spiral Abstract",
-    category: "Branding",
-    description: "A visually striking 3D abstract artwork featuring a coral-colored spiral form with smooth, flowing curves and a soft pink gradient background, emphasizing modern digital aesthetics and organic geometry.",
+    title: "IA Nexus - Workflow",
+    category: "Automação & Agendamento",
+    description: "Sistema completo de 'Prompt to Post'. Criação de legendas personalizadas, agendamento automático em redes sociais e dashboard de métricas.",
     image: img2,
     color: "#1a1a1a"
   },
   {
-    title: "Neon Cityscapes",
-    category: "UI / UX Design",
-    description: "An immersive digital experience exploring future city layouts with neon aesthetics and interactive 3D elements.",
+    title: "MedGen AI",
+    category: "HealthTech SaaS",
+    description: "Otimização da rotina médica através da automação de documentos técnicos. Processamento de dados brutos e OCR de exames para geração de laudos.",
     image: img3,
     color: "#0f0f0f"
   },
    {
-    title: "Eco-Friendly Packaging",
-    category: "Product Design",
-    description: "Sustainable packaging solutions for a new line of organic skincare products, focusing on minimalism and recyclability.",
+    title: "MedGen AI - Split View",
+    category: "Produtividade Médica",
+    description: "Interface desktop-first com edição assistida por IA (GPT-4o/Med-PaLM). Permite revisão e estruturação ágil de laudos antes da exportação final.",
     image: img4,
     color: "#1f1f1f"
   }
@@ -89,7 +89,7 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
                     role="link"
                     aria-label={`See case study for ${title}`}
                 >
-                    See Case Study
+                    Em Desenvolvimento
                 </span>
              </div>
         </div>
@@ -108,21 +108,17 @@ const FutureProjects = () => {
   });
 
   return (
-    <section ref={container} id="future-projects" className="relative pt-20 bg-black w-screen left-1/2 -ml-[50vw]">
+    <section ref={container} id="future-projects" className="relative z-30 pt-20 bg-black w-screen left-1/2 -ml-[50vw]">
 
       <div className="container mx-auto px-6 mb-[-70px] text-center min-[800px]:-translate-y-12">
             <ParallaxElement offset={-20}>
-                <RevealOnScroll>
                     <span className="text-primary font-medium tracking-wider uppercase text-sm">Em Breve</span>
                     <h2 className="text-4xl md:text-5xl font-bold mt-2 text-white">Projetos Futuros</h2>
-                </RevealOnScroll>
             </ParallaxElement>
              <ParallaxElement offset={0}>
-                <RevealOnScroll delay={0.1}>
                     <p className="text-gray-400 mt-9 max-w-2xl mx-auto">
                         Um vislumbre de trabalhos futuros e conceitos experimentais atualmente em desenvolvimento.
                     </p>
-                </RevealOnScroll>
              </ParallaxElement>
       </div>
 
