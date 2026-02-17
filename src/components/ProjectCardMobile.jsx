@@ -18,13 +18,12 @@ const ProjectCardMobile = ({ project, isActive }) => {
   return (
     <motion.div
       className={`relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ease-out border border-white/10 bg-gray-900/90 ${
-        isActive ? "grayscale-0 scale-100 opacity-100 z-10" : "grayscale opacity-50 scale-90 z-0 blur-[1px]"
+        isActive ? "scale-100 z-10" : "scale-90 z-0"
       }`}
       animate={{
         scale: isActive ? 1 : 0.9,
-        opacity: isActive ? 1 : 0.5,
-        // Remove blur on active to keep it sharp
-        filter: isActive ? "blur(0px)" : "blur(1px)",
+        opacity: 1, // Always fully visible
+        // REMOVED BLUR FOR SAFARI PERFORMANCE
       }}
     >
       {/* Blurred Background for fill (Atmosphere) */}

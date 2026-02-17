@@ -54,7 +54,7 @@ const ProjectCardDesktop = ({ project, isActive }) => {
                     "--project-color": project.color,
                     boxShadow: "0 0 0 1px var(--project-color)" 
                 }}
-                aria-label="View Live Demo"
+                aria-label="Ver Projeto"
             >
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] animate-[spin_4s_linear_infinite] -z-10" 
                       style={{ background: `conic-gradient(from 0deg, transparent 0 75%, var(--project-color) 100%)` }} 
@@ -72,7 +72,7 @@ const ProjectCardDesktop = ({ project, isActive }) => {
                     "--project-color": project.color,
                     boxShadow: "0 0 0 1px var(--project-color)"
                 }}
-                aria-label="View Code on GitHub"
+                aria-label="Ver Código no GitHub"
             >
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] animate-[spin_4s_linear_infinite] -z-10" 
                       style={{ background: `conic-gradient(from 0deg, transparent 0 75%, var(--project-color) 100%)` }} 

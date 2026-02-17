@@ -3,10 +3,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import RevealOnScroll from './ui/RevealOnScroll';
 import ParallaxElement from './ui/ParallaxElement';
 
-import img1 from '../assets/futureProjects/iafutureprojeto.png';
-import img2 from '../assets/futureProjects/ialulafutureprojeto.png';
-import img3 from '../assets/futureProjects/medgemfutureprojeto.png';
-import img4 from '../assets/futureProjects/medgen2futureproject.png';
+import img1 from '../assets/futureProjects/iafutureprojeto.webp';
+import img2 from '../assets/futureProjects/ialulafutureprojeto.webp';
+import img3 from '../assets/futureProjects/medgemfutureprojeto.webp';
+import img4 from '../assets/futureProjects/medgen2futureproject.webp';
 
 const projects = [
   {
@@ -61,7 +61,8 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
                 <img 
                     src={src} 
                     alt={title} 
-                    loading="lazy"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
                     className="w-full h-full object-cover"
                 />
             </motion.div>

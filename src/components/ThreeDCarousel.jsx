@@ -123,6 +123,7 @@ const ThreeDCarousel = () => {
                     sizes="(max-width: 768px) 280px, 400px"
                     alt={`Gallery ${card.id}`} 
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 aspect-[300/650] md:aspect-[400/700]" 
                   />
                   {/* Dark overlay that lightens on hover */}

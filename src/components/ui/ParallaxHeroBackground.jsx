@@ -33,6 +33,8 @@ const ParallaxHeroBackground = ({ children }) => {
                     alt="Background" 
                     fetchPriority="high"
                     decoding="async"
+                    width="1920"
+                    height="1080"
                     className="w-full h-full object-cover opacity-60" 
                 />
             </motion.div>
@@ -54,6 +56,8 @@ const ParallaxHeroBackground = ({ children }) => {
                     alt="Ryan" 
                     fetchPriority="high"
                     decoding="async"
+                    width="800"
+                    height="1200"
                     className="h-[90%] max-[800px]:h-[85%] max-[800px]:mb-0 w-auto object-contain object-bottom max-[800px]:object-center" 
                 />
             </motion.div>
@@ -70,6 +74,8 @@ const ParallaxHeroBackground = ({ children }) => {
                         alt="Logo" 
                         fetchPriority="high"
                         decoding="async"
+                        width="500"
+                        height="300"
                         className="w-full h-full object-contain" 
                     />
                 </picture>

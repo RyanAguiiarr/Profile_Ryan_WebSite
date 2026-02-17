@@ -61,10 +61,10 @@ const projects = [
   },
   {
     id: 2,
-    title: "MedGen AI",
-    description: "Solução SaaS voltada para a área da saúde que utiliza Inteligência Artificial para a geração automatizada de relatórios e laudos médicos. Foco em segurança de dados e precisão técnica via Engenharia de Prompt e LLMs.",
+    title: "Dieta.AI",
+    description: "Assistente nutricional inteligente que gera planos alimentares personalizados. Utiliza IA para adaptar cardápios, monitorar calorias e otimizar resultados de hipertrofia ou emagrecimento.",
     images: [dietaAi1, dietaAi2, dietaAi3, dietaAi4, dietaAi5],
-    tags: ["AI", "LLMs", "Engenharia de Prompt", "SaaS Saúde"],
+    tags: ["React", "Spring Boot", "IA/LLMs", "Saúde"],
     color: "#82C91E", // Verde Limão
     colors: {
         bg: "#01161E",
@@ -233,9 +233,9 @@ const Projects = () => {
                                 x: offset * 105 + "%", // Spacing
                                 scale: isActive ? 1 : 0.85,
                                 zIndex: isActive ? 10 : 5,
-                                opacity: isActive ? 1 : 0.4,
-                                filter: isActive ? "blur(0px)" : "blur(4px)",
-                                rotateY: isActive ? 0 : offset > 0 ? -15 : 15 // Tilt effect
+                                opacity: 1,
+                                filter: "none", // Always sharp
+                                rotateY: 0 // Removed tilt for sharpness
                             }}
                             transition={{
                                 type: "spring",

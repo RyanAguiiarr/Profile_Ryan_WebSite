@@ -71,7 +71,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
         <button
           className="absolute right-6 md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-label={isMobileMenuOpen ? "Fechar Menu" : "Abrir Menu"}
         >
           {isMobileMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -127,6 +127,8 @@ const FloatingNav = ({ navLinks }) => {
              <img 
                 src={profileImg} 
                 alt="Home" 
+                width="56"
+                height="56"
                 className="w-full h-full object-cover"
             />
         </a>
