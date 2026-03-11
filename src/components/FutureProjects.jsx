@@ -52,12 +52,12 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
   return (
     <div ref={container} className="h-screen flex items-center justify-center sticky top-0 px-4">
       <motion.div 
-        style={{ scale, top: `calc(-5vh + ${i * 25}px)`, transform: 'translateZ(0)' }} 
-        className="relative -top-[25%] h-[65vh] md:h-[700px] w-full max-w-[1300px] rounded-3xl origin-top bg-[#1d1d1d] border border-white/10 shadow-2xl overflow-hidden will-change-transform"
+        style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
+        className="relative -top-[25%] h-[65vh] md:h-[700px] w-full max-w-[1300px] rounded-3xl origin-top bg-[#1d1d1d] border border-white/10 shadow-2xl overflow-hidden"
       >
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full z-0">
-             <motion.div className="w-full h-full will-change-transform" style={{ scale: imageScale, transform: 'translateZ(0)' }}>
+             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
                 <img 
                     src={src} 
                     alt={title} 

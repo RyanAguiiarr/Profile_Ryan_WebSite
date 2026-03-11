@@ -15,7 +15,7 @@ const SmoothScroll = ({ children }) => {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
-      smooth: window.innerWidth > 768 && !isIOSDevice, // Disable heavy smoothing on iOS and mobile if it causes issues
+      smooth: !isIOSDevice, // Disable heavy smoothing on iOS if it causes issues, or keep enabled but lighter
       mouseMultiplier: 1,
       smoothTouch: false, // Always false for touch devices usually better
       touchMultiplier: 2,
