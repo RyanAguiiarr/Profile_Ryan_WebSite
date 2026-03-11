@@ -42,8 +42,8 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
             <img 
               src={logoVideo}
               alt="Ryan Logo" 
-              width="184"
-              height="102"
+              width="288"
+              height="159"
               fetchPriority="high"
               className="w-full h-auto" 
             />
@@ -88,7 +88,7 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden bg-black/95 border-b border-white/10 overflow-hidden absolute top-full left-0 right-0 ${isIOS() ? '' : 'backdrop-blur-xl'}`}
+            className={`md:hidden bg-black/95 border-b border-white/10 overflow-hidden absolute top-full left-0 right-0`}
           >
             <div className="flex flex-col p-6 space-y-6">
               {navLinks.map((link) => (
@@ -120,7 +120,7 @@ const FloatingNav = ({ navLinks }) => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/90 border border-white/10 rounded-full shadow-2xl ${isIOS() ? '' : 'backdrop-blur-md'}`}
+        className={`fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/95 border border-white/10 rounded-full shadow-2xl`}
     >
         {/* Profile / Home Icon */}
         <a href="#home" aria-label="Ir para o início" onClick={(e) => scrollTo(e, "#home")} className="block w-14 h-14 rounded-full overflow-hidden border border-white/10 hover:border-white transition-colors">

@@ -2,22 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ParallaxElement from './ui/ParallaxElement';
 
-import img1 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.jpg';
-import img2 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.jpg';
-import img3 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.jpg';
-import img4 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.jpg';
-import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.jpg';
-import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.jpg';
-import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.jpg';
-import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.jpg';
-import img1Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7-mobile.jpg';
-import img2Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw-mobile.jpg';
-import img3Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6-mobile.jpg';
-import img4Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d-mobile.jpg';
-import img5Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw-mobile.jpg';
-import img6Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47-mobile.jpg';
-import img7Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6-mobile.jpg';
-import img8Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf-mobile.jpg';
+import img1 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.webp';
+import img2 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.webp';
+import img3 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.webp';
+import img4 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.webp';
+import img5 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.webp';
+import img6 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.webp';
+import img7 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6.webp';
+import img8 from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.webp';
+import img1Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_3nk7pd3nk7pd3nk7.webp';
+import img2Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4smwzx4smwzx4smw.webp';
+import img3Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_4tp6ni4tp6ni4tp6.webp';
+import img4Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_7o5d7f7o5d7f7o5d.webp';
+import img5Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_8ngwj38ngwj38ngw.webp';
+import img6Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bf47mrbf47mrbf47.webp';
+import img7Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_bmt6vsbmt6vsbmt6-mobile.webp';
+import img8Mobile from '../assets/cardCarrossel/semac/Gemini_Generated_Image_tlgfc6tlgfc6tlgf.webp';
 
 const cards = [
   { id: 1, img: img1, imgMobile: img1Mobile },

@@ -6,32 +6,51 @@ import InfiniteMarquee from "./InfiniteMarquee";
 
 import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
 
+import javaIcon from "../assets/tech/java-original.svg";
+import springIcon from "../assets/tech/spring-original.svg";
+import reactIcon from "../assets/tech/react-original.svg";
+import awsIcon from "../assets/tech/amazonwebservices-original-wordmark.svg";
+import typescriptIcon from "../assets/tech/typescript-original.svg";
+import dockerIcon from "../assets/tech/docker-original.svg";
+import postgresqlIcon from "../assets/tech/postgresql-original.svg";
+import nodejsIcon from "../assets/tech/nodejs-original.svg";
+import kubernetesIcon from "../assets/tech/kubernetes-plain.svg";
+import mongodbIcon from "../assets/tech/mongodb-original.svg";
+import pythonIcon from "../assets/tech/python-original.svg";
+import csharpIcon from "../assets/tech/csharp-original.svg";
+import fastapiIcon from "../assets/tech/fastapi-original.svg";
+import kafkaIcon from "../assets/tech/apachekafka-original.svg";
+import tailwindIcon from "../assets/tech/tailwindcss-original.svg";
+import gitIcon from "../assets/tech/git-original.svg";
+import cIcon from "../assets/tech/c-original.svg";
+import openaiIcon from "../assets/tech/OpenAI_Logo.svg";
+
 // Tech stack data with official logos
 // Size: 'sm' | 'md' | 'lg'
 const techStack = [
   // Large items (Center/Inner core) - Main Skills
-  { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", x: -350, y: -150, z: 100, size: "lg" },
-  { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", x: 350, y: -150, z: 100, size: "lg" },
-  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", x: -300, y: 220, z: 100, size: "lg" },
-  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", x: 300, y: 220, z: 100, size: "lg" }, // Use wordmark for recognition or plain if too wide
+  { name: "Java", logo: javaIcon, x: -350, y: -150, z: 100, size: "lg" },
+  { name: "Spring Boot", logo: springIcon, x: 350, y: -150, z: 100, size: "lg" },
+  { name: "React", logo: reactIcon, x: -300, y: 220, z: 100, size: "lg" },
+  { name: "AWS", logo: awsIcon, x: 300, y: 220, z: 100, size: "lg" }, // Use wordmark for recognition or plain if too wide
   
   // Medium items (Mid circle - Widened) - Important Skills
-  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", x: 0, y: -320, z: 50, size: "md" },
-  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", x: 0, y: 320, z: 50, size: "md" },
-  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", x: -500, y: 0, z: 60, size: "md" },
-  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", x: 500, y: 0, z: 60, size: "md" },
-  { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg", x: -400, y: -250, z: 40, size: "md" },
-  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", x: 400, y: -250, z: 40, size: "md" },
+  { name: "TypeScript", logo: typescriptIcon, x: 0, y: -320, z: 50, size: "md" },
+  { name: "Docker", logo: dockerIcon, x: 0, y: 320, z: 50, size: "md" },
+  { name: "PostgreSQL", logo: postgresqlIcon, x: -500, y: 0, z: 60, size: "md" },
+  { name: "Node.js", logo: nodejsIcon, x: 500, y: 0, z: 60, size: "md" },
+  { name: "Kubernetes", logo: kubernetesIcon, x: -400, y: -250, z: 40, size: "md" },
+  { name: "MongoDB", logo: mongodbIcon, x: 400, y: -250, z: 40, size: "md" },
 
   // Small items (Outer circle - Widened) - Supporting Skills
-  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", x: -600, y: -180, z: 20, size: "sm" }, // For AI/FastAPI context
-  { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", x: 600, y: -180, z: 20, size: "sm" },
-  { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", x: -600, y: 180, z: 20, size: "sm" },
-  { name: "Kafka", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", x: 600, y: 180, z: 20, size: "sm" },
-  { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", x: -250, y: -450, z: 10, size: "sm" },
-  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", x: 250, y: -450, z: 10, size: "sm" },
-  { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg", x: -250, y: 450, z: 10, size: "sm" },
-  { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg", x: 250, y: 450, z: 10, size: "sm" }, // Using Wikimedia for OpenAI logo as devicon might not have it or it might be new
+  { name: "Python", logo: pythonIcon, x: -600, y: -180, z: 20, size: "sm" }, // For AI/FastAPI context
+  { name: "C#", logo: csharpIcon, x: 600, y: -180, z: 20, size: "sm" },
+  { name: "FastAPI", logo: fastapiIcon, x: -600, y: 180, z: 20, size: "sm" },
+  { name: "Kafka", logo: kafkaIcon, x: 600, y: 180, z: 20, size: "sm" },
+  { name: "Tailwind", logo: tailwindIcon, x: -250, y: -450, z: 10, size: "sm" },
+  { name: "Git", logo: gitIcon, x: 250, y: -450, z: 10, size: "sm" },
+  { name: "C", logo: cIcon, x: -250, y: 450, z: 10, size: "sm" },
+  { name: "OpenAI", logo: openaiIcon, x: 250, y: 450, z: 10, size: "sm" }, // Using Wikimedia for OpenAI logo as devicon might not have it or it might be new
 ];
 
 const TechStack3D = () => {
@@ -93,7 +112,7 @@ const TechStack3D = () => {
              
              {/* Badge & Title - Compacted */}
              <motion.div style={{ y: yContent }} className="mb-2 relative z-20">
-                <div className="px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md inline-block">
+                <div className="px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/20 text-orange-400 text-[10px] font-bold tracking-widest uppercase inline-block">
                     Arsenal Full Stack
                 </div>
              </motion.div>
@@ -225,7 +244,7 @@ const FloatingCard = ({ tech }) => {
                 ease: "easeInOut"
             }}
         >
-            <div className={`${sizeClasses[tech.size]} relative rounded-2xl bg-[#0a0a0a]/90 ${isIOS() ? 'backdrop-blur-sm' : 'backdrop-blur-xl'} border border-white/15 shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
+            <div className={`${sizeClasses[tech.size]} relative rounded-2xl bg-[#0a0a0a]/95 border border-white/15 shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
                 
                 {/* Top Orange Glow Effect */}
                 <div className="absolute top-[-25%] left-[-20%] right-[-20%] h-[60%] bg-orange-500/40 blur-[30px] rounded-full pointer-events-none mix-blend-screen" />
