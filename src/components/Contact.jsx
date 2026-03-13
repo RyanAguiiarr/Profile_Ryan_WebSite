@@ -43,9 +43,9 @@ const Contact = () => {
                 </a>
 
                 <div className="flex gap-4 mt-8">
-                <SocialLink href="#" label="LinkedIn" />
-                <SocialLink href="#" label="GitHub" />
-                <SocialLink href="#" label="Twitter" />
+                <SocialLink href="https://www.linkedin.com/in/ryanaguiar2006/" label="LinkedIn" />
+                <SocialLink href="https://github.com/RyanAguiiarr" label="GitHub" />
+                <SocialLink href="https://www.instagram.com/ryan_aguiar006/" label="Instagram" />
                 </div>
             </motion.div>
             </div>

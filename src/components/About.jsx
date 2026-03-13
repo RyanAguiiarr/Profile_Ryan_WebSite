@@ -53,7 +53,7 @@ const About = () => {
                  {/* Title */}
                  <ParallaxElement offset={20}>
                     <RevealOnScroll>
-                        <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter">
+                        <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-2 uppercase tracking-tighter">
                             Sobre Mim
                         </h2>
                     </RevealOnScroll>
@@ -63,7 +63,9 @@ const About = () => {
                  <ParallaxElement offset={-10}>
                     <RevealOnScroll delay={0.2}>
                         <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                            Sou Desenvolvedor Full Stack em formação, com mais de dois anos de experiência prática em desenvolvimento de software e suporte em TI. Tenho domínio do ecossistema Spring (Boot, Security, Cloud) e React, aplicando boas práticas de código, design patterns e foco em performance e escalabilidade.
+                            Desenvolvedor Full Stack & Especialista em IA | AWS Certified Cloud Architect
+Desenvolvedor Full Stack em transição para nível Pleno, com sólido conhecimento no ecossistema Java/Spring e integração de Inteligência Artificial Generativa. Recentemente certificado pela AWS como Cloud Solutions Architect e pela IBM em Desenvolvimento Java. Experiência prática na construção de arquiteturas escaláveis (Microsserviços), automação de processos com IA e infraestrutura em nuvem. Focado em criar soluções que unem performance técnica e experiência do usuário (UX/UI).
+
                         </p>
                     </RevealOnScroll>
                  </ParallaxElement>
@@ -109,7 +111,7 @@ const About = () => {
                      >
                          <div className="text-center lg:text-left">
                              <h3 className="text-white font-bold mb-1">Telefone :</h3>
-                             <p className="text-gray-400 text-sm sm:text-base">+55 (17) 99626-8399</p>
+                             <p className="text-gray-400 text-sm sm:text-base">+55 (17) 99618-5988</p>
                          </div>
                          <div className="text-center lg:text-left">
                              <h3 className="text-white font-bold mb-1">Email :</h3>
@@ -133,7 +135,7 @@ const About = () => {
                          </div>
 
                          {/* CTA Button */}
-                         <Button className="px-8 py-3 uppercase tracking-wider w-full sm:w-auto">
+                         <Button href="https://www.linkedin.com/in/ryanaguiar2006/" className="px-8 py-3 uppercase tracking-wider w-full sm:w-auto">
                              Minha História
                          </Button>
                      </motion.div>

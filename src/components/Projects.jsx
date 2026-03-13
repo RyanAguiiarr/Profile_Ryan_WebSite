@@ -56,8 +56,8 @@ const projects = [
       highlight1: "#6366F1",
       highlight2: "#252836"
     },
-    github: "#",
-    demo: "#"
+    github: "https://github.com/RyanAguiiarr/Design_SaaS_Backend",
+    demo: "https://github.com/RyanAguiiarr/Design_SaaS"
   },
   {
     id: 2,
@@ -71,8 +71,8 @@ const projects = [
         highlight1: "#82C91E",
         highlight2: "#00A5E3"
     },
-    github: "#",
-    demo: "#"
+    github: "https://github.com/RyanAguiiarr/App_Dieta.IA",
+    demo: "https://github.com/RyanAguiiarr/App_Dieta.IA_Front-End"
   },
   {
     id: 3,
@@ -86,8 +86,8 @@ const projects = [
         highlight1: "#FF007A",
         highlight2: "#2E31FF"
     },
-    github: "#",
-    demo: "#"
+    github: "https://github.com/RyanAguiiarr/SEMAX_XI_BACKEND",
+    demo: "https://semac-xi-ifsp.vercel.app/"
   },
   {
     id: 4,
@@ -101,8 +101,8 @@ const projects = [
         highlight1: "#FF6D33",
         highlight2: "#6C3EE8"
     },
-    github: "#",
-    demo: "#"
+    github: "https://github.com/RyanAguiiarr/StartEdu_IFSP",
+    demo: "https://start-edu-ifsp.vercel.app/"
   }
 ];
 

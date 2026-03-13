@@ -93,7 +93,7 @@ const Hero = () => {
                                 Mesclando a robustez do Java/Spring com a agilidade do React.
                             </p>
                             <div className="flex justify-end gap-4">
-                                 <Button href="#about" variant="secondary">Ver Portfólio</Button>
+                                 <Button href="https://github.com/RyanAguiiarr" variant="secondary">Ver Portfólio</Button>
                             </div>
                         </RevealOnScroll>
                     </motion.div>
