@@ -163,11 +163,18 @@ const Projects = () => {
                  <AnimatePresence mode="wait">
                     <motion.div
                         key={currentIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-full flex justify-center"
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.4 }}
+                        className="w-full flex justify-center cursor-grab active:cursor-grabbing"
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.15}
+                        onDragEnd={(e, { offset, velocity }) => {
+                            if (offset.x < -80 || velocity.x < -300) nextProject();
+                            else if (offset.x > 80 || velocity.x > 300) prevProject();
+                        }}
                     >
                         <ProjectCardDesktop project={currentProject} isActive={true} />
                     </motion.div>
@@ -227,7 +234,7 @@ const Projects = () => {
                     return (
                         <motion.div
                             key={project.id}
-                            className="absolute w-[90%] max-w-[400px]"
+                            className={`absolute w-[90%] max-w-[400px] ${isActive ? 'cursor-grab active:cursor-grabbing' : ''}`}
                             initial={false}
                             animate={{
                                 x: offset * 105 + "%", // Spacing
@@ -242,7 +249,19 @@ const Projects = () => {
                                 stiffness: 300,
                                 damping: 30
                             }}
-                            onClick={() => setCurrentIndex(index)}
+                            onClick={() => {
+                                if (!isActive) setCurrentIndex(index);
+                            }}
+                            drag={isActive ? "x" : false}
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.4}
+                            onDragEnd={(e, { offset, velocity }) => {
+                                if (offset.x < -50 || velocity.x < -300) {
+                                    nextProject();
+                                } else if (offset.x > 50 || velocity.x > 300) {
+                                    prevProject();
+                                }
+                            }}
                         >
                             <ProjectCardMobile project={project} isActive={isActive} />
                         </motion.div>

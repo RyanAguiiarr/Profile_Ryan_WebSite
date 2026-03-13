@@ -28,13 +28,14 @@ const skills = [
   { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" }
 ];
 
-// Import parallax component
 import ParallaxHeroBackground from "./ui/ParallaxHeroBackground";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]); // Background moves down (slower scroll)
   const y2 = useTransform(scrollY, [0, 500], [10, 200]); // Content moves up slightly (faster separation)
+  const isMobile = useIsMobile();
 
   return (
     <section id="home" className="relative min-h-[140vh] max-[800px]:min-h-[900px] max-[1023px]:min-h-[1000px] flex flex-col justify-start pt-16 md:pt-48 pb-10 lg:pb-64">
@@ -106,9 +107,9 @@ const Hero = () => {
                   <div className="grid grid-cols-2 gap-2 w-full">
                       {/* Left Side */}
                       <motion.div 
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 }}
+                          initial={isMobile ? false : { opacity: 0, x: -20 }}
+                          animate={isMobile ? false : { opacity: 1, x: 0 }}
+                          transition={isMobile ? { duration: 0 } : { delay: 0.1 }}
                           className="flex flex-col items-start text-left"
                       >
                           <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase ml-1">desenvolvedor</span>
@@ -121,9 +122,9 @@ const Hero = () => {
 
                       {/* Right Side */}
                       <motion.div 
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 }}
+                          initial={isMobile ? false : { opacity: 0, x: 20 }}
+                          animate={isMobile ? false : { opacity: 1, x: 0 }}
+                          transition={isMobile ? { duration: 0 } : { delay: 0.1 }}
                           className="flex flex-col items-end text-right"
                       >
                           <span className="font-script text-2xl sm:text-3xl min-[800px]:text-4xl text-orange-500 mb-2 lowercase mr-1">engenheiro de</span>

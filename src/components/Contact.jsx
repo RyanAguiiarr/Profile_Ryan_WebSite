@@ -5,8 +5,10 @@ import Button from "./ui/Button";
 import ParallaxElement from "./ui/ParallaxElement";
 
 import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const Contact = () => {
+  const isMobile = useIsMobile();
   return (
     <section id="contact" className="py-[250px] relative overflow-hidden bg-black w-screen left-1/2 -ml-[50vw]">
       {/* Background accents */}
@@ -16,8 +18,8 @@ const Contact = () => {
         <ParallaxElement offset={-20}>
             <div className="max-w-4xl mx-auto text-center">
             <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={isMobile ? false : { opacity: 0, y: 20 }}
+                whileInView={isMobile ? false : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="text-4xl md:text-6xl font-bold mb-8"
             >
@@ -26,20 +28,20 @@ const Contact = () => {
             </motion.h2>
 
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={isMobile ? false : { opacity: 0, y: 20 }}
+                whileInView={isMobile ? false : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+                transition={isMobile ? { duration: 0 } : { delay: 0.2 }}
                 className="flex flex-col items-center gap-6"
             >
                 <a 
                 href="mailto:ryan.c.aguiiarr@gmail.com"
-                className="group flex items-center gap-3 text-2xl md:text-3xl font-medium hover:text-primary transition-colors"
+                className="group flex items-center gap-3 text-2xl md:text-3xl font-medium md:hover:text-primary md:transition-colors"
                 aria-label="Send email to ryan.c.aguiiarr@gmail.com"
                 >
                 <Mail className="hidden md:block" />
                 ryan.c.aguiiarr@gmail.com
-                <ArrowUpRight className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                <ArrowUpRight className="md:group-hover:-translate-y-1 md:group-hover:translate-x-1 md:transition-transform" />
                 </a>
 
                 <div className="flex gap-4 mt-8">

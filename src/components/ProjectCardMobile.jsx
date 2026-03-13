@@ -65,9 +65,6 @@ const ProjectCardMobile = ({ project, isActive }) => {
       <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black via-black/90 to-transparent p-6 flex flex-col justify-end z-20">
         {isActive && (
             <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
                 className="space-y-3"
             >
                 <div className="flex items-center gap-2 mb-1">
@@ -81,7 +78,7 @@ const ProjectCardMobile = ({ project, isActive }) => {
                 <div className="flex gap-3 mt-6">
                      <a 
                         href={project.demo}
-                        className="flex-1 relative group inline-flex items-center justify-center px-4 py-2 overflow-hidden rounded-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--project-color)]"
+                        className="flex-1 relative group inline-flex items-center justify-center px-4 py-2 overflow-hidden rounded-lg font-bold text-white md:transition-all md:duration-300 md:hover:scale-105 md:hover:shadow-[0_0_20px_var(--project-color)]"
                         style={{ 
                             "--project-color": project.color,
                             boxShadow: "0 0 0 1px var(--project-color)"
@@ -99,7 +96,7 @@ const ProjectCardMobile = ({ project, isActive }) => {
 
                      <a 
                         href={project.github}
-                        className="flex-1 relative group inline-flex items-center justify-center px-4 py-2 overflow-hidden rounded-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--project-color)]"
+                        className="flex-1 relative group inline-flex items-center justify-center px-4 py-2 overflow-hidden rounded-lg font-bold text-white md:transition-all md:duration-300 md:hover:scale-105 md:hover:shadow-[0_0_20px_var(--project-color)]"
                         style={{ 
                             "--project-color": project.color,
                             boxShadow: "0 0 0 1px var(--project-color)" 

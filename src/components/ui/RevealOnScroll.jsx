@@ -1,7 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const RevealOnScroll = ({ children, delay = 0, duration = 0.5, className = "" }) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <div className={`overflow-hidden ${className}`}>
         <motion.div

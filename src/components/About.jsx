@@ -30,8 +30,11 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
 };
 
 import AboutBackgroundShapes from "./ui/AboutBackgroundShapes";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const About = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section id="about" className="py-8 md:py-24 relative min-h-screen flex items-center bg-black overflow-hidden w-screen left-1/2 -translate-x-1/2">
       <AboutBackgroundShapes />
@@ -73,10 +76,10 @@ Desenvolvedor Full Stack em transição para nível Pleno, com sólido conhecime
                  {/* Counters */}
                  <ParallaxElement offset={-30}>
                     <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={isMobile ? false : { opacity: 0, y: 20 }}
+                        whileInView={isMobile ? false : { opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        transition={isMobile ? { duration: 0 } : { delay: 0.2 }}
                         className="grid grid-cols-3 gap-6 mb-8 w-full max-w-md lg:max-w-full"
                     >
                         <div className="flex flex-col gap-1 items-center lg:items-start">
@@ -103,10 +106,10 @@ Desenvolvedor Full Stack em transição para nível Pleno, com sólido conhecime
                  {/* Contact Row */}
                  <ParallaxElement offset={-50}>
                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={isMobile ? false : { opacity: 0, y: 20 }}
+                        whileInView={isMobile ? false : { opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
+                        transition={isMobile ? { duration: 0 } : { delay: 0.3 }}
                         className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 mb-8"
                      >
                          <div className="text-center lg:text-left">
@@ -123,10 +126,10 @@ Desenvolvedor Full Stack em transição para nível Pleno, com sólido conhecime
                  {/* Bottom Actions */}
                  <ParallaxElement offset={-70}>
                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={isMobile ? false : { opacity: 0, y: 20 }}
+                        whileInView={isMobile ? false : { opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
+                        transition={isMobile ? { duration: 0 } : { delay: 0.4 }}
                         className="flex flex-col-reverse sm:flex-row items-center justify-center lg:justify-start gap-8 w-full"
                      >
                          {/* Social Icons */}

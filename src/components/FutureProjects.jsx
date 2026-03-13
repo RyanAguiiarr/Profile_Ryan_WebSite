@@ -86,7 +86,7 @@ const Card = ({ i, title, description, src, category, progress, range, targetSca
 
              <div className="flex items-center gap-4 mt-2">
                 <span 
-                    className="text-sm font-medium text-white underline underline-offset-4 cursor-pointer hover:text-orange-700 transition-colors"
+                    className="text-sm font-medium text-white underline underline-offset-4 cursor-pointer md:hover:text-orange-700 md:transition-colors"
                     role="link"
                     aria-label={`See case study for ${title}`}
                 >

@@ -22,17 +22,19 @@ const useSmoothScroll = () => {
 
     return scrollTo;
 };
+import { useIsMobile } from "../hooks/useIsMobile";
 
 
 const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
     const scrollTo = useSmoothScroll();
+    const isMobile = useIsMobile();
 
     return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -100, opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      initial={isMobile ? false : { y: -100, opacity: 0 }}
+      animate={isMobile ? false : { y: 0, opacity: 1 }}
+      exit={isMobile ? false : { y: -100, opacity: 0 }}
+      transition={isMobile ? { duration: 0 } : { duration: 0.5, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6 max-w-[1600px] mx-auto"
     >
       <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
@@ -113,13 +115,14 @@ const StandardNav = ({ navLinks, isMobileMenuOpen, setIsMobileMenuOpen }) => {
 
 const FloatingNav = ({ navLinks }) => {
     const scrollTo = useSmoothScroll();
+    const isMobile = useIsMobile();
 
     return (
     <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -100, opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        initial={isMobile ? false : { y: -100, opacity: 0 }}
+        animate={isMobile ? false : { y: 0, opacity: 1 }}
+        exit={isMobile ? false : { y: -100, opacity: 0 }}
+        transition={isMobile ? { duration: 0 } : { duration: 0.5, ease: "easeInOut" }}
         className={`fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center gap-4 px-2 py-2 bg-black/90 border border-white/10 rounded-full shadow-2xl ${isIOS() ? '' : 'backdrop-blur-md'}`}
     >
         {/* Profile / Home Icon */}

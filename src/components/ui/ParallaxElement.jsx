@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const ParallaxElement = ({ 
   children, 
@@ -7,12 +8,17 @@ const ParallaxElement = ({
   className = "" 
 }) => {
   const ref = useRef(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -offset]);
+
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div ref={ref} style={{ y }} className={className}>
